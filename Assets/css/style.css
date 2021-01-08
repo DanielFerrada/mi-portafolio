@@ -1,20 +1,39 @@
+body {
+margin: 0;
+font-size: 16px;
+}
+
+
+
+
+
 .name-navbar {
 
 font-size: 40px;    
 font-family: 'Bebas Neue', cursive;
 text-align: center;
 margin-top: 10px;
-
 }
 
 .logo-navbar {
 width: 250px;
-
-
 }
 
 .logo-navbar img{
     width: 100%;
-    
-    
-    }
+}
+
+
+header {
+background-image: url('../img/portada.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+margin-top: 90px;
+height: 90vh;
+      
+}
+
+section {
+height: 80vh;
+}
