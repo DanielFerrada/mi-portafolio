@@ -1,10 +1,17 @@
 body {
 margin: 0;
 font-size: 16px;
+color:#666;
 }
 
+h1,h2,h3,h4,h5{
+    color: #666666;
+    font-family: 'Bebas Neue', cursive;
+}
+.nav-item {
+font-size: 20px;
 
-
+}
 
 
 .name-navbar {
@@ -34,6 +41,35 @@ height: 90vh;
       
 }
 
-section {
-height: 80vh;
+
+
+
+.img-principal {
+width: 100%;
 }
+
+.carousel-indicators {
+    top: 110%;
+        
+        }
+        
+.carousel-indicators li {
+        
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color:#666;
+margin-top: 30px;
+        
+     }
+
+.carousel-iconos {
+    filter: invert(59%) 
+    sepia(100%) 
+    saturate(3456%) 
+    hue-rotate(332deg) 
+    brightness(108%) 
+    contrast(109%);
+    width: 75px;
+}
+    
