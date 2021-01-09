@@ -13,6 +13,15 @@ h3 {
 font-size: 50px;
 }
 
+.icons-rrss {
+color: #666;
+}
+
+.icons-rrss a{
+color: #ffffff;
+text-decoration: none;
+}
+
 .subt-about {
 color:#FFA500;
 }

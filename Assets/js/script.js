@@ -1,11 +1,14 @@
 $(function() {
+    //jquey for tool-tip in about section
     $('[data-bs-toggle="tooltip"]').tooltip();
 
-     $( "#enviarCorreo" ).on( "click", function() {
+    //jquey for contact form menu
+    $( "#enviarCorreo" ).on( "click", function() {
         alert("El correo fue enviado correctamente.");
       });
-
-      $('a[href*=\\#]').on('click', function(event){     
+    
+    //jquey for scroll function to only sections 
+    $('a[href*=\\#scroll]').on('click', function(event){     
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top-90}, 900);
     });
