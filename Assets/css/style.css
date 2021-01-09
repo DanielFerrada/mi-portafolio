@@ -4,17 +4,50 @@ font-size: 16px;
 color:#666;
 }
 
-h1,h2,h3,h4,h5{
-    color: #666666;
+h1,h2,h3,h5{
+    color: #666;
     font-family: 'Bebas Neue', cursive;
 }
+
+h3 {
+font-size: 50px;
+}
+
+.subt-about {
+color:#FFA500;
+}
+
 .nav-item {
 font-size: 20px;
+}
+
+.text-portada {
+color:darkgray;
+}
+
+.text-skill {
+color:#FFA500;
+}
+
+.my-works {
+font-size: 50px;
+padding-top: 40px;
 
 }
 
+.img-portada {
+width: 90%;
+padding:5%;
+}
 
-.name-navbar {
+.text-card {
+font-size: 16px;
+}
+
+.img-int {
+width: 100%;
+}
+.name-navba {
 
 font-size: 40px;    
 font-family: 'Bebas Neue', cursive;
@@ -27,22 +60,14 @@ width: 250px;
 }
 
 .logo-navbar img{
-    width: 100%;
+width: 100%;
 }
 
 
 header {
-background-image: url('../img/portada.png');
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center;
-margin-top: 90px;
-height: 90vh;
-      
+background-color: black;
+margin-top: 90px;     
 }
-
-
-
 
 .img-principal {
 width: 100%;
@@ -51,7 +76,7 @@ width: 100%;
 .carousel-indicators {
     top: 110%;
         
-        }
+ }
         
 .carousel-indicators li {
         
@@ -64,12 +89,17 @@ margin-top: 30px;
      }
 
 .carousel-iconos {
-    filter: invert(59%) 
-    sepia(100%) 
-    saturate(3456%) 
-    hue-rotate(332deg) 
-    brightness(108%) 
-    contrast(109%);
+    filter: invert(59%) sepia(92%) saturate(1577%) hue-rotate(1deg) brightness(106%) contrast(101%);
     width: 75px;
 }
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 20px;
+    width: 20px;
+    outline: black;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-size: 100%, 100%;
+    border-radius: 100%;
     
+}
+  

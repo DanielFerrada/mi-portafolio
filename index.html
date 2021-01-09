@@ -48,19 +48,41 @@
         </div>
       </nav>
 
-      <header class="hero text-light text-right py-5 mt-5">
+    <header class="hero text-light" id="#index">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 my-5 pt-5 ">
+              <h1 class="text-md-start mt-5 pt-5 text-portada">Publicista, formador, UX/UI designer. 
+                Distintas formas para poner en práctica la <span class="text-skill">creatividad</span></span> en post de las personas</h1>
+                <hr size="8px" color="white" width="60%" align ="left" class="line-texto d-none d-sm-block mt-4"/>
+                <p class="text-portada text-start pt-3 ">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus magnam labore repudiandae, itaque ipsa 
+                </p>
+            </div>
+            <div class="col-sm-6 my-3 d-xs-none">
+              <img src="Assets/img/portada.png" class="img-portada" alt="...">
+            </div>
+
+          </div>
+         
+        </div>
+        
         
         <!-- Insertar Boton de desplazamiento-->
 
       </header>
 
 
-  <section id="about" class="About my-5 py-5">
+<section id="about" class="About my-3 py-3">
     <div class="container">
       <div class="row">
-        <div class="col-6 py-5">
+        <div class="col-md-12 ">
+        <h3>Un poco de mi</h3>
 
-          <h2> Integrando competencias </h2>
+        </div>
+        <div class="col-6 ">
+
+          <h4 class="subt-about"> Integrando competencias </h4>
           <hr size="8px" color="black" width="75%" align="left" class="line-texto d-none d-sm-block"/>
 
           <p>He trabajado desde mis 20 años en distintos rubros, lo que me ha permitido conocer a distintos tipos perfiles de personas, con esto, el valor y potencial que tienen cada una de ellas y como saber manejar equipos heterogéneos.</p>
@@ -70,20 +92,17 @@
 
         </div>
 
-        <div class="col-6 py-5">
+        <div class="col-6 ">
           
-          <h2> Seguir aprendiendo </h2>
+          <h4 class="subt-about"> Seguir aprendiendo </h4>
           <hr size="8px" color="black" width="75%" align="left" class="line-texto d-none d-sm-block"/>
           <p> El mundo es dinámico, y las nuevas tendencias van apareciendo día a día, nuevas tecnologías y formas de trabajo, todas esas oportunidades y desafíos me encantan, lo que se transformó en el deseo de ser parte del mundo digital y a raiz de eso, ingresé en la carrera de UX / UI para poder intergrarme en esta nueva era donde la importancia está centrada en el usuario.</p>
             <p>Ser parte de la transformación digital es una invitacion a seguir aprendiendo y crecer como profesional... y eso me apasiona!!.</p>
             
           <p class="mb-5">Bueno, al final todo esto solo son datos, lo mejor es conocernos.</p>
 
-          <button type="button" class="btn btn-outline-secondary"> ¿Conversemos?</button>
+          <a href="#contact" type="button" data-bs-toggle="tooltip" data-placement="right" title="  Envíame un correo"  class="btn btn-outline-secondary"> ¿Conversemos?</a>
         </div>
- 
- 
- 
       </div>
 
 <div class="row">
@@ -153,46 +172,120 @@
 
 
     </div>
-</section>
+  </section>
 
-<section id="work" class="bg-secondary py-5 my-5">
+<section id="work" class="bg-secondary pt-4 mb-4">
 
-  <h3 class="text-center mb-5 pb-4 text-light">Mis trabajos</h3>∫
-  <div class="container">
-    <div class="row">
-
-    
-
+  <h2 class="text-center my-works text-light">Mis trabajos</h2>∫
+  <div class="container pb-5">
+    <div class="row" id="gallery" data-toggle="modal" data-target="#exampleModal">
+      <div class="col-12 col-sm-6 col-lg-4 my-3">
+        <img class="w-100" src="Assets/img/meet_coffee.png" alt="First slide" data-target="#carouselExample" data-slide-to="0">
       </div>
+      <div class="col-12 col-sm-6 col-lg-4 my-3">
+        <img class="w-100" src="Assets/img/suricata.png" alt="First slide" data-target="#carouselExample" data-slide-to="1">
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 my-3">
+        <img class="w-100" src="Assets/img/cuppon.png" alt="First slide" data-target="#carouselExample" data-slide-to="2">
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 my-3">
+        <img class="w-100" src="Assets/img/iguana_page.png" alt="First slide" data-target="#carouselExample" data-slide-to="3">
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 my-3">
+        <img class="w-100" src="Assets/img/ricomida.png" alt="First slide" data-target="#carouselExample" data-slide-to="4">
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4 my-3">
+        <img class="w-100" src="Assets/img/olivia-ros.png" alt="First slide" data-target="#carouselExample" data-slide-to="5">
+      </div>
+    </div>
 
     
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <!-- carousel inside modal -->
+            <div id="carouselExample" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="d-block img-int" src="Assets/img/img-carousel-inner/meet_coffe.png" alt="First slide">
+                  <p class="text-center py-3 text-card">Sitio de contacto responsivo con formulario de contacto, donde se ocupan elementos de jquery y bootstrap </p>
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-int" src="Assets/img/img-carousel-inner/suricata.png" alt="Second slide">
+                  <p class="text-center py-3 text-card">Sitio de contacto responsivo con formulario de contacto, donde se ocupan elementos de jquery y bootstrap </p>
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-int" src="Assets/img/img-carousel-inner/Cuppon.png" alt="Third slide">
+                  <p class="text-center py-3 text-card">Sitio de contacto responsivo con formulario de contacto, donde se ocupan elementos de jquery y bootstrap </p>
+                </div>
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-int" src="Assets/img/img-carousel-inner/iguana_page.png" alt="Fourth slide">
+                  <p class="text-center py-3 text-card">Sitio de contacto responsivo con formulario de contacto, donde se ocupan elementos de jquery y bootstrap </p>
+                </div>
 
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-int" src="Assets/img/img-carousel-inner/ricomida.png" alt="Fifth slide">
+                  <p class="text-center py-3 text-card">Sitio de contacto responsivo con formulario de contacto, donde se ocupan elementos de jquery y bootstrap </p>
+                </div>
+
+                <div class="carousel-item">
+                  <img class="d-block w-100 img-int" src="Assets/img/img-carousel-inner/olivia_ros.png" alt="sixth slide">
+                  <p class="text-center py-3 text-card">Sitio de contacto responsivo con formulario de contacto, donde se ocupan elementos de jquery y bootstrap </p>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon shadow p-4 mb-5" aria-hidden="true"></span>
+                <span class="sr-only">anterior</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                <span class="carousel-control-next-icon shadow p-4 mb-5" aria-hidden="true"></span>
+                <span class="sr-only">siguiente</span>
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+          </div>
+         </div>
+        </div>
+       </div>
+
+    
       </div>
     </div>
   </div>
-</section>
+  </section>
 
-<section id="contact"class="contact my-5 py-5">
-<h3 class="text-center mb-5 pb-4 ">Contacto</h3>
-  <div class="container">
+<section id="contact"class="contact my-4 py-4">
+<h3 class="text-center">Contacto</h3>
+<div class="container">
     <div class="row">
-      <div class="col-6 py-5">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maiores ad nobis itaque illo iure qui adipisci consequatur tempora magni, labore repellendus pariatur sunt aliquid architecto? Et, at molestiae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit consectetur atque, neque perferendis laborum, quod vero officia, earum ipsa velit error sunt ratione eligendi molestiae tempore ullam ipsam ea quasi</p>
+      <div class="col-8 col-md-6 offset-md-3 pb-4">
+        <p class="text-center pb-4">Si tienes alguna duda, o quieres conversar conmigo para algún trabajo  o solicitud, no dudes en contactarme.</p>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Ingresa tu correo</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@correo.com">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Escribe tu mensaje</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <button type="button" class="btn btn-outline-warning" id="enviarCorreo">Enviar</button>
 
       </div>
 
-      <div class="col-6 py-5">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maiores ad nobis itaque illo iure qui adipisci consequatur tempora magni, labore repellendus pariatur sunt aliquid architecto? Et, at molestiae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit consectetur atque, neque perferendis laborum, quod vero officia, earum ipsa velit error sunt ratione eligendi molestiae tempore ullam ipsam ea quasi</p>
-
-      </div>
     </div>
   </div>
-</section>
+  </section>
 
 <footer class=" display-5 bg-dark text-center text-light p-5">
   <p> Daniel Ferrada 2021.</p>
 
-</footer>
+  </footer>
 
 
       
