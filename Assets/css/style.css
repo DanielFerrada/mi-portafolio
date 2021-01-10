@@ -74,7 +74,11 @@ width: 100%;
 
 
 header {
-background-color: black;
+background-image: url('../img/portada-bg.png');
+background-repeat: no-repeat;
+background-position: left;
+background-size: cover;
+padding-bottom: 100px;
 margin-top: 90px;     
 }
 
@@ -124,5 +128,13 @@ margin-top: 30px;
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
+
+    .logo-navbar {
+        width: 200px;
+        }
  
+    header {
+        margin-top: 70px;     
+        }
+
 }
