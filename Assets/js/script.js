@@ -12,6 +12,16 @@ $(function() {
         event.preventDefault();
         $('html,body').animate({scrollTop:$(this.hash).offset().top-90}, 900);
     });
+
+    //jquey change word
+    var count = 0;
+    var wordsArray = ["Creatividad", "imaginación", "Facilitación", "Usabilidad"];
+    setInterval(function () {
+    count++;
+    $("#change-word").fadeOut(function () {
+      $(this).text(wordsArray[count % wordsArray.length]).fadeIn();
+    });
+    }, 3000);
     
 
  });
