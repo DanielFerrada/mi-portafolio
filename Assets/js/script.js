@@ -2,6 +2,8 @@ $(function() {
 
   $('#myModalTC').modal(options);
   $('#myModalHitos').modal(options);
+  $('#myModalTCvideo').modal(options);
+  
 
     //jquey for tool-tip in about section
     $('[data-bs-toggle="tooltip"]').tooltip();

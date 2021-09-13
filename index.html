@@ -94,7 +94,8 @@
               <p> El mundo es dinámico, y las nuevas tendencias van apareciendo día a día, nuevas tecnologías y formas de trabajo, todas esas oportunidades y desafíos me encantan, lo que se transformó en el deseo de ser parte del mundo digital y a raiz de eso, ingrese y me gradué en la carrera de UX / UI para poder intergrarme en esta nueva era donde la importancia está centrada en el usuario.</p>
               <p>Ser parte de la transformación digital es una invitacion a seguir aprendiendo y crecer como profesional... y eso me apasiona!!.</p>
               <p class="mb-5">Bueno, al final todo esto solo son datos, lo mejor es conocernos.</p>
-              <a href="#scroll-contact" type="button" data-bs-toggle="tooltip" data-placement="right" title="  Envíame un correo"  class="btn btn-outline-secondary"> ¿Conversemos?</a>
+              
+              <a href="#scroll-contact" type="button" data-bs-toggle="tooltip" data-placement="right" title="Envíame un correo"  class="btn btn-outline-secondary"> ¿Conversemos?</a>
             </div>
           </div>
           <!-- About Me Skills-->
@@ -248,28 +249,38 @@
               <div class="box-portfolio">
               <h1 class="txt-works text-center text-light">Tenemos Cancha</h1>
               <h4 class="txt-works subtitulo text-light">Aplicación móvil</h4>
+              <!-- Button trigger modal video -->
+              <button type="button" class="btn btn-light m-4" data-toggle="modal" data-target="#myModalTCvideo">
+                VER PROYECTO
+              </button>
 
-              <a href="Assets/pdf/Hitos-portafolio.pdf" type="button" target="_blank" data-bs-toggle="tooltip" data-placement="right" title="Revisa el resumen del proyecto"  class="btn btn-light m-4"> VER PROYECTO
-              </a>
               
-                    <!-- Button trigger modal -->
+              <!-- Button trigger modal -->
               <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModalTC">
                 VER PROTOTIPO
               </button>
 
 
 
-              <!-- Modal -->
+              <!-- Modal figma -->
               <div class="modal fade" id="myModalTC" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-md">
                   <div class="modal-content">
                     
                     <div class="modal-body">
                       <iframe width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FJaDC8AK1aTeHOWNnNJTFcc%2FTenemos-Cancha%3Fpage-id%3D0%253A1%26node-id%3D2%253A6%26viewport%3D302%252C48%252C0.04%26scaling%3Dscale-down%26starting-point-node-id%3D2%253A5"></iframe>
-
-
-                      <div class="mt-4">Prototipado en papel</div>
-                      <iframe src="https://drive.google.com/file/d/1zNaJCDXHC15X8jI5fIDSQct0V2xtq4fk/preview" width="100%" height="300" allow="autoplay"></iframe>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+               <!-- Modal video-->
+               <div class="modal fade" id="myModalTCvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    
+                    <div class="modal-body">
+                      <iframe src="https://drive.google.com/file/d/1zNaJCDXHC15X8jI5fIDSQct0V2xtq4fk/preview" width="100%" height="500" ></iframe>
                     </div>
                     
                   </div>
@@ -286,27 +297,8 @@
         </div>
       </section>
 
-      <section id="scroll-work-ux" class=" pt-4  px-2">
-        <h2 class="text-center my-works my-4">Caso UI</h2>
-       
-        <div class="container pb-5">
-          <div class="row">
-            <div class="col-6">
-              <img class="w-100" src="Assets/img/hitos.portafolio.png" alt="seccond slide" >
-            </div>
-            <div class="col-6">
-              <div class="box-portfolio">
-              <h1 class="txt-works">Hitos: Vinculación territorial</h1>
-              <h4 class="txt-works mb-5">Aplicación móvil</h4>
-             
-              <button type="button" class="btn btn-dark">VER MÁS</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section id="scroll-work" class="bg-secondary pt-4 mb-4 px-2">
+      <section id="scroll-work" class="bg-dark pt-4 mb-4 px-2">
         <h2 class="text-center my-works text-light">Mis trabajos web</h2>
         <p class="text-center text-light">Si quieres ver el cógigo de la página o visualizarla mejor, haz click en la imágen ;)</p>
         <div class="container pb-5">
@@ -452,16 +444,11 @@
           <div class="container">
               <div class="row">
                 <div class="col-12 col-md-6 offset-md-3 pb-4">
-                  <p class="text-center pb-4">Si tienes alguna duda, o quieres conversar conmigo para algún trabajo  o solicitud, no dudes en contactarme.</p>
-                  <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Ingresa tu correo</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@correo.com">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Escribe tu mensaje</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                  <button type="button" class="btn btn-outline-warning" id="enviarCorreo">Enviar</button>
+                  <p class="text-center pb-4">Si tienes alguna duda, o quieres conversar conmigo para algún trabajo  o solicitud, no dudes en contactarme a:</p>
+                  <p class="text-center"><a href="mailto:daniel.ferrada.becerra@gmail.com">daniel.ferrada.becerra@gmail.com</a></p>
+                  <p class="text-center">+56949789366</p>
+                  
+                  
                 </div>
               </div>
           </div>
