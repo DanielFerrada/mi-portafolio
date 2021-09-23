@@ -1,175 +1,167 @@
 body {
-margin: 0;
-font-size: 16px;
-color:#666;
+  margin: 0;
+  font-size: 16px;
+  color: #666;
 }
 
-h1,h2,h3,h5{
-    color: #666;
-    font-family: 'Bebas Neue', cursive;
-
+h1,
+h2,
+h3,
+h5 {
+  color: #666;
+  font-family: "Bebas Neue", cursive;
 }
 
 h3 {
-font-size: 50px;
+  font-size: 50px;
 }
-.pointer { 
-cursor: pointer; }
+.pointer {
+  cursor: pointer;
+}
 
 .txt-works {
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
- 
-
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .img-smartphone {
-width: 80%;
-margin-left: 10%;
+  width: 80%;
+  margin-left: 10%;
 }
 
 .img-smartphone2 {
-    width: 80%;
-    margin-right: 10%;
-    margin-bottom: 5%;
+  width: 80%;
+  margin-right: 10%;
+  margin-bottom: 5%;
 }
-    
 
 .icons-rrss {
-color: #666;
+  color: #666;
 }
 
-.icons-rrss a{
-color: #ffffff;
-text-decoration: none;
+.icons-rrss a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .subt-about {
-color:#FFA500;
+  color: #ffa500;
 }
 
 .nav-item {
-font-size: 20px;
+  font-size: 20px;
 }
 
 .text-portada {
-color:darkgray;
+  color: darkgray;
 }
 
 .text-skill {
-color:#FFA500;
+  color: #ffa500;
 }
 
 .my-works {
-font-size: 50px;
-padding-top: 40px;
-
+  font-size: 50px;
+  padding-top: 40px;
 }
 
 .img-portada {
-width: 90%;
-padding:5%;
+  width: 90%;
+  padding: 5%;
 }
 
 .text-card {
-font-size: 16px;
+  font-size: 16px;
 }
 
 .img-int {
-width: 100%;
+  width: 100%;
 }
 .name-navba {
-
-font-size: 40px;    
-font-family: 'Bebas Neue', cursive;
-text-align: center;
-margin-top: 10px;
+  font-size: 40px;
+  font-family: "Bebas Neue", cursive;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .logo-navbar {
-width: 250px;
+  width: 250px;
 }
 
-.logo-navbar img{
-width: 100%;
+.logo-navbar img {
+  width: 100%;
 }
-
 
 header {
-background-image: url('../img/portada-bg.png');
-background-repeat: no-repeat;
-background-position: left;
-background-size: cover;
-padding-bottom: 100px;
-margin-top: 90px;     
+  background-image: url("../img/portada-bg.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  padding-bottom: 100px;
+  margin-top: 90px;
 }
 
 .img-principal {
-width: 100%;
+  width: 100%;
 }
 
 .carousel-indicators {
-    top: 110%;
-        
- }
-        
+  top: 110%;
+}
+
 .carousel-indicators li {
-        
-width: 10px;
-height: 10px;
-border-radius: 50%;
-background-color:#666;
-margin-top: 30px;
-        
-     }
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #666;
+  margin-top: 30px;
+}
 
 .carousel-iconos {
-    filter: invert(59%) sepia(92%) saturate(1577%) hue-rotate(1deg) brightness(106%) contrast(101%);
-    width: 75px;
+  filter: invert(59%) sepia(92%) saturate(1577%) hue-rotate(1deg)
+    brightness(106%) contrast(101%);
+  width: 75px;
 }
 
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    height: 20px;
-    width: 20px;
-    outline: black;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-size: 100%, 100%;
-    border-radius: 100%;
-    
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 20px;
+  width: 20px;
+  outline: black;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-size: 100%, 100%;
+  border-radius: 100%;
 }
 
-.icons-work a{
-    color:#FFA500;
-    text-decoration: none;
-    }
- .no-padding{
-     padding: 0!important;
- }
- .box-portfolio {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
- }
+.icons-work a {
+  color: #ffa500;
+  text-decoration: none;
+}
+.no-padding {
+  padding: 0 !important;
+}
+.box-portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
 
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
-.img-portada {
-
+  .img-portada {
     margin-top: 70px;
     width: 100%;
-}
-  
+  }
 }
 
 /* On screens that are 600px or less, set the background color to olive */
 @media screen and (max-width: 600px) {
+  .logo-navbar {
+    width: 200px;
+  }
 
-    .logo-navbar {
-        width: 200px;
-        }
- 
-    header {
-        margin-top: 70px;     
-        }
-
+  header {
+    margin-top: 70px;
+  }
 }
