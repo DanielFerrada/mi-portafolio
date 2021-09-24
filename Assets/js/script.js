@@ -21,4 +21,6 @@ $(function() {
   $('#myModalTC').modal(options);
   $('#myModalHitos').modal(options);
   $('#myModalTCvideo').modal(options);
+  $('#myModalitala').modal(options);
+  
 });
