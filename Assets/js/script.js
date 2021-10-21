@@ -22,5 +22,7 @@ $(function() {
   $('#myModalHitos').modal(options);
   $('#myModalTCvideo').modal(options);
   $('#myModalitala').modal(options);
+  $('#myModalasistente').modal(options);
+
   
 });

@@ -53,7 +53,7 @@ h3 {
 }
 
 .text-portada {
-  color: darkgray;
+  color: rgb(255, 255, 255);
 }
 
 .text-skill {
@@ -154,7 +154,10 @@ header {
   margin-top: 30px;
 }
 
-
+.menu-bar li a {
+color:#ffffff !important;
+padding: 0 0 0 20px !important;
+}
 
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (max-width: 992px) {
