@@ -1,795 +1,1412 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio Daniel Ferrada</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CCS de bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous"
-    />
-    <!-- Google fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;400;500;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daniel Ferrada · UX/UI Designer · Productos Financieros Digitales</title>
+  <meta name="description" content="UX/UI Designer especializado en productos financieros digitales. Más de 4 años liderando proyectos end-to-end en banca — acciones, fondos mutuos y productos de ahorro."/>
+  <meta name="keywords" content="UX designer, UI designer, productos financieros digitales, banca, fintech, Figma, Design System, Agile, inversiones, Santiago Chile"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <!-- Font awesome-->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-
-      UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="Assets/css/style.css" />
-  </head>
-  <body>
-    <!-- NavBar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
-      <div class="container-md">
-        <a class="navbar-brand logo-navbar" href="#scroll-banner">
-          <h4 class="mt-2">Daniel Ferrada</h4>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          ariacontrols="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto menu-bar">
-            <li class="nav-item">
-              <a class="nav-link" href="#scroll-about"
-                >Acerca de mi <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#scroll-work-ux">Portafolio UX/UI</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#scroll-work">Trabajos</a>
-            </li>
+    :root {
+      --black: #0d0d0d;
+      --white: #f5f3ee;
+      --gray-1: #1a1a1a;
+      --gray-2: #2e2e2e;
+      --gray-3: #6b6b6b;
+      --gray-4: #a8a8a8;
+      --gray-5: #d4d2cc;
+      --gray-6: #eae8e2;
+      --accent: #1a6b4a;
+      --accent-light: #e8f2ec;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Outfit', system-ui, sans-serif;
+      --section-gutter: clamp(28px, 5.5vw, 104px);
+    }
 
-            <li class="nav-item">
-              <a class="nav-link" href="#scroll-contact">Contacto</a>
-            </li>
-          </ul>
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.6;
+      cursor: none;
+      overflow-x: hidden;
+    }
+
+    /* ── Cursor ── */
+    #cursor {
+      width: 10px; height: 10px;
+      background: var(--black);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform .15s ease, background .2s;
+      transform: translate(-50%, -50%);
+    }
+    #cursor.hover { transform: translate(-50%,-50%) scale(3.5); background: var(--accent); opacity: .5; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px var(--section-gutter);
+      transition: background .3s, padding .3s, box-shadow .3s;
+    }
+    nav.scrolled {
+      background: var(--black);
+      padding: 14px var(--section-gutter);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      opacity: .7;
+      transition: opacity .2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+
+    /* ── Foto perfil ── */
+    .about-photo {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gray-5);
+      display: block;
+      margin-bottom: 28px;
+      filter: grayscale(20%);
+    }
+    .about-photo-placeholder {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--gray-6);
+      border: 2px solid var(--gray-5);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px;
+      font-size: 28px;
+      font-family: var(--serif);
+      color: var(--gray-4);
+      font-weight: 400;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 70vh;
+      background: var(--black);
+      background-image: url('assets/img/portada-bg.png');
+      background-size: cover;
+      background-position: left center;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      align-items: stretch;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      /* Degradado más pronto a oscuro para que el retrato no compita con el texto (~1200–1400px) */
+      background: linear-gradient(
+        to right,
+        rgba(13,13,13,.14) 0%,
+        rgba(13,13,13,.42) 28%,
+        rgba(13,13,13,.82) 42%,
+        rgba(13,13,13,.96) 52%,
+        rgba(13,13,13,1) 100%
+      );
+      z-index: 1;
+    }
+    .hero-bg-text { display: none; }
+    .hero-left {
+      position: relative; z-index: 2;
+      display: block;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0;
+      animation: fadeUp .8s .2s forwards;
+    }
+    .hero-title {
+      font-family: 'Poppins', system-ui, sans-serif;
+      line-height: 1;
+      letter-spacing: -.02em;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp .9s .4s forwards;
+    }
+    .hero-title .name-bold {
+      display: block;
+      font-size: clamp(12px, 7vw, 78px);
+      line-height: .95;
+      letter-spacing: -.03em;
+      color: var(--white);
+      font-style: normal !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+    }
+    .hero-title .name-light {
+      display: block;
+      font-size: clamp(12px, 7vw, 78px);
+      line-height: .95;
+      letter-spacing: -.03em;
+      color: var(--white);
+      font-style: normal !important;
+      font-family: 'Poppins', system-ui, sans-serif !important;
+      opacity: .35;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.3);
+      padding-bottom: 4px;
+      transition: border-color .2s, gap .2s;
+      opacity: 0;
+      animation: fadeUp .8s .6s forwards;
+    }
+    .hero-cta:hover { border-color: var(--white); gap: 20px; color: var(--white); text-decoration: none; }
+    .hero-cta-arrow { font-size: 16px; line-height: 1; transition: transform .2s ease; }
+    .hero-stat-meta .hero-cta {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      border-bottom: none;
+      padding-top: 20px;
+      padding-bottom: 0;
+    }
+    .hero-stat-meta .hero-cta .hero-cta-label {
+      border-bottom: 1px solid rgba(255,255,255,.3);
+      padding-bottom: 4px;
+      transition: border-color .2s;
+    }
+    .hero-stat-meta .hero-cta:hover {
+      gap: 14px;
+      border-color: transparent;
+    }
+    .hero-stat-meta .hero-cta:hover .hero-cta-label { border-color: var(--white); }
+    .hero-stat-meta .hero-cta:hover .hero-cta-arrow { transform: translateY(4px); }
+
+    .hero-right {
+      position: relative; z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 110px var(--section-gutter) 56px;
+      padding-left: max(var(--section-gutter), clamp(32px, 4vw, 72px));
+      gap: 0;
+      opacity: 0;
+      animation: fadeUp .8s .3s forwards;
+      min-width: 0;
+    }
+    /* Velo local en el borde izquierdo del texto: evita que el retrato del fondo “pise” el título */
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: min(160px, 18vw);
+      background: linear-gradient(to right, rgba(13,13,13,.85), rgba(13,13,13,0));
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-right > * { position: relative; z-index: 1; }
+    .hero-right .hero-eyebrow { margin-bottom: 12px; padding-bottom: 0; }
+    .hero-title-stat-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 28px 48px;
+      width: 100%;
+      margin-bottom: 28px;
+    }
+    .hero-title-stat-row .hero-title {
+      margin-top: 0;
+      margin-bottom: 0;
+      flex: 1 1 min(100%, 320px);
+      min-width: 0;
+    }
+    .hero-stat-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      align-self: flex-start;
+      gap: 12px;
+      flex: 0 1 auto;
+      max-width: 280px;
+    }
+    .hero-stat-meta .hero-stat,
+    .hero-stat-meta .hero-meta {
+      margin-bottom: 0;
+    }
+    .hero-stat-meta .hero-stat {
+      width: 100%;
+      text-align: right;
+    }
+    .hero-stat {
+      margin-bottom: 24px;
+    }
+    .hero-stat-num {
+      font-family: var(--serif);
+      font-size: clamp(42px, 5.5vw, 72px);
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      color: var(--gray-3);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .hero-meta {
+      display: flex; flex-direction: column; gap: 4px;
+      padding-top: 30px;
+      width: 100%;
+      margin-bottom: 28px;
+    }
+    .hero-meta span {
+      font-size: 12px;
+      color: var(--gray-3);
+      letter-spacing: .04em;
+    }
+    .hero-scroll-hint { display: none; }
+    .scroll-line { display: none; }
+    .hero-stat-num {
+      font-family: var(--serif);
+      font-size: clamp(42px, 5.5vw, 72px);
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
+    .hero-stat-label {
+      font-size: 12px;
+      color: var(--gray-3);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+    .hero-meta {
+      display: flex; flex-direction: column; gap: 6px;
+      text-align: right;
+    }
+    .hero-meta span {
+      font-size: 12px;
+      color: var(--gray-3);
+      letter-spacing: .05em;
+    }
+    .hero-scroll-hint {
+      position: absolute; bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s 1.2s forwards;
+    }
+    .hero-scroll-hint span { font-size: 10px; color: var(--gray-3); letter-spacing: .15em; text-transform: uppercase; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--gray-3), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ── About ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
+      border-top: 1px solid var(--gray-5);
+      padding-left: var(--section-gutter);
+      padding-right: var(--section-gutter);
+    }
+    .about-left {
+      padding: 80px 48px 80px 0;
+      border-right: 1px solid var(--gray-5);
+    }
+    .about-left h2 {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 24px;
+    }
+    .about-tools { display: flex; flex-direction: column; gap: 10px; }
+    .tool-item {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-6);
+      color: var(--gray-2);
+    }
+    .tool-level {
+      display: flex; gap: 3px;
+    }
+    .tool-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gray-5);
+    }
+    .tool-dot.on { background: var(--accent); }
+
+    .about-right {
+      padding: 80px 0 80px 48px;
+    }
+    .about-right p {
+      font-size: clamp(17px, 1.4vw, 20px);
+      line-height: 1.75;
+      color: var(--gray-2);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    .about-right p strong { font-weight: 500; color: var(--black); }
+    .about-right p em { font-style: italic; font-family: var(--serif); font-size: 1.05em; }
+
+    /* ── Section label ── */
+    .section-marker {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 0;
+      border-top: 1px solid var(--gray-5);
+      padding: 20px var(--section-gutter);
+    }
+    .section-marker-num { font-size: 11px; color: var(--gray-4); letter-spacing: .1em; }
+    .section-marker-line { flex: 1; height: 1px; background: var(--gray-5); }
+    .section-marker-title { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-3); }
+
+    /* ── Casos ── */
+    #casos {
+      background: var(--white);
+      padding-left: var(--section-gutter);
+      padding-right: var(--section-gutter);
+      padding-bottom: 50px;
+    }
+
+    .casos-header {
+      padding: 60px 0 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      border-bottom: 1px solid var(--gray-5);
+    }
+    .casos-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+    }
+    .casos-header p {
+      font-size: 15px;
+      color: var(--gray-3);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .caso-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      align-items: stretch;
+      border-bottom: 1px solid var(--gray-5);
+      cursor: pointer;
+      transition: background .2s;
+      min-height: 120px;
+    }
+    .caso-row:hover { background: var(--gray-6); }
+    .caso-row:hover .caso-arrow { opacity: 1; transform: translateX(0); }
+
+    .caso-index {
+      display: flex; align-items: center; justify-content: center;
+      border-right: 1px solid var(--gray-5);
+      font-size: 11px;
+      color: var(--gray-4);
+      letter-spacing: .1em;
+      font-weight: 400;
+    }
+    .caso-info {
+      padding: 32px clamp(20px, 3vw, 40px);
+      border-right: 1px solid var(--gray-5);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .caso-tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .caso-tag {
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      border: 1px solid var(--gray-5);
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+    .caso-tag.accent { background: var(--accent-light); border-color: #b2d4c2; color: var(--accent); }
+    .caso-title-row {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.5vw, 32px);
+      line-height: 1.15;
+      letter-spacing: -.01em;
+      color: var(--black);
+    }
+    .caso-right {
+      padding: 32px clamp(20px, 3vw, 40px);
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .caso-desc {
+      font-size: 14px;
+      color: var(--gray-3);
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 380px;
+    }
+    .caso-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 20px;
+    }
+    .caso-year { font-size: 12px; color: var(--gray-4); letter-spacing: .05em; }
+    .caso-arrow {
+      font-size: 20px;
+      color: var(--accent);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity .2s, transform .2s;
+    }
+
+    /* ── Modal de caso ── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(13,13,13,.85);
+      z-index: 200;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 60px var(--section-gutter);
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-panel {
+      background: var(--white);
+      width: 100%; max-width: 800px;
+      border-radius: 2px;
+      overflow: hidden;
+      animation: slideUp .35s ease;
+    }
+    .modal-top-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px var(--section-gutter);
+      border-bottom: 1px solid var(--gray-5);
+    }
+    .modal-top-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-3); }
+    .modal-close {
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      background: none; border: 1px solid var(--gray-5);
+      border-radius: 50%; cursor: none;
+      font-size: 16px; color: var(--gray-2);
+      transition: background .15s;
+    }
+    .modal-close:hover { background: var(--gray-6); }
+    .modal-img-slot {
+      width: 100%;
+      min-height: 360px;
+      background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .modal-img-slot:has(> img) {
+      height: 320px;
+      min-height: 320px;
+    }
+    .modal-img-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .modal-img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      max-width: 38em;
+      text-align: center;
+      padding: 28px var(--section-gutter);
+    }
+    .modal-img-placeholder-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      line-height: 1.35;
+      color: rgba(255,255,255,.58);
+    }
+    .modal-img-placeholder-desc {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: .02em;
+      line-height: 1.65;
+      color: rgba(255,255,255,.4);
+      margin: 0;
+    }
+    .modal-img-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 12px var(--section-gutter);
+      background: linear-gradient(transparent, rgba(0,0,0,.6));
+      font-size: 12px; color: rgba(255,255,255,.6); letter-spacing: .05em;
+    }
+    .modal-body-content { padding: 40px var(--section-gutter) 56px; }
+    .modal-kpis {
+      display: flex; gap: 32px;
+      padding: 24px 0;
+      border-top: 1px solid var(--gray-5);
+      border-bottom: 1px solid var(--gray-5);
+      margin-bottom: 36px;
+    }
+    .kpi-item {}
+    .kpi-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: -.02em;
+    }
+    .kpi-label { font-size: 11px; color: var(--gray-3); letter-spacing: .08em; text-transform: uppercase; margin-top: 4px; }
+
+    .modal-body-content h3 {
+      font-family: var(--serif);
+      font-size: 28px;
+      letter-spacing: -.01em;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    .modal-section {  }
+    .modal-section-label {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 10px;
+    }
+    .modal-section p {
+      font-size: 15px; color: var(--gray-2);
+      line-height: 1.75; font-weight: 300;
+    }
+    .modal-section p strong { font-weight: 500; color: var(--black); }
+    .modal-result-box {
+      background: var(--black);
+      color: var(--white);
+      padding: 28px 32px;
+      border-radius: 2px;
+      margin-top: 8px;
+    }
+    .modal-result-box p { font-size: 15px; color: rgba(255,255,255,.75); line-height: 1.7; font-weight: 300; }
+    .modal-result-box p strong { color: var(--white); font-weight: 500; }
+
+    /* ── Testimonio ── */
+    #testimonio {
+      background: var(--black);
+      padding: 100px var(--section-gutter);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .testimonio-left {}
+    .testimonio-left-label {
+      font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--gray-3); margin-bottom: 24px;
+    }
+    .testimonio-left-rule { width: 32px; height: 1px; background: var(--accent); margin-bottom: 24px; }
+    .testimonio-left-author strong {
+      font-size: 13px; color: var(--white); display: block; margin-bottom: 4px; font-weight: 500;
+    }
+    .testimonio-left-author span { font-size: 12px; color: var(--gray-3); }
+    .testimonio-right blockquote {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2vw, 26px);
+      color: rgba(245,243,238,.85);
+      line-height: 1.65;
+      font-weight: 400;
+      font-style: italic;
+      border: none;
+      padding: 0;
+    }
+    .testimonio-right blockquote::before { content: none; }
+
+    /* ── Formación ── */
+    #formacion {
+      border-top: 1px solid var(--gray-5);
+      padding-left: var(--section-gutter);
+      padding-right: var(--section-gutter);
+    }
+    .formacion-header {
+      padding: 48px 0 32px;
+      display: flex; align-items: baseline; justify-content: space-between;
+      border-bottom: 1px solid var(--gray-5);
+    }
+    .formacion-header h2 {
+      font-family: var(--serif);
+      font-size: 32px; letter-spacing: -.01em;
+    }
+    .formacion-header p { font-size: 13px; color: var(--gray-3); }
+    .formacion-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .formacion-item {
+      padding: 36px 32px;
+      border-right: 1px solid var(--gray-5);
+      border-bottom: 1px solid var(--gray-5);
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 200px;
+    }
+    .formacion-item:nth-child(even) { border-right: none; }
+    .formacion-item-top {}
+    .formacion-tipo { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-4); margin-bottom: 10px; }
+    .formacion-nombre {
+      font-family: var(--serif);
+      font-size: 22px; line-height: 1.2;
+      letter-spacing: -.01em;
+      margin-bottom: 10px;
+    }
+    .formacion-sub { font-size: 13px; color: var(--gray-3); font-weight: 300; }
+    .formacion-links { display: flex; gap: 12px; margin-top: 20px; }
+    .formacion-link {
+      font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--gray-2); text-decoration: none;
+      border-bottom: 1px solid var(--gray-4);
+      padding-bottom: 2px;
+      transition: color .15s, border-color .15s;
+    }
+    .formacion-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── Contacto ── */
+    #contacto {
+      background: var(--black);
+      padding: 100px var(--section-gutter);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 40px;
+    }
+    .contacto-left h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 64px);
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin-bottom: 24px;
+    }
+    .contacto-left h2 em { color: var(--gray-3); font-style: italic; }
+    .contact-email {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 16px; font-weight: 400;
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+      padding-bottom: 6px;
+      transition: border-color .2s, gap .2s;
+    }
+    .contact-email:hover { border-color: var(--white); gap: 20px; color: var(--white); }
+    .contacto-right { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+    .contact-link {
+      font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gray-3); text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+      transition: color .15s;
+    }
+    .contact-link:hover { color: var(--white); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--gray-2);
+      padding: 20px var(--section-gutter);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    footer span { font-size: 12px; color: var(--gray-3); }
+
+    /* ── Trayectoria ── */
+    #trayectoria {
+      background: var(--white);
+      border-top: 1px solid var(--gray-5);
+      padding-left: var(--section-gutter);
+      padding-right: var(--section-gutter);
+    }
+    .trayectoria-inner {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
+    }
+    .trayectoria-left {
+      padding: 64px 40px 64px 0;
+      border-right: 1px solid var(--gray-5);
+    }
+    .trayectoria-left h2 {
+      font-family: var(--serif);
+      font-size: 32px;
+      letter-spacing: -.01em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .trayectoria-left p {
+      font-size: 13px;
+      color: var(--gray-3);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .trayectoria-right { padding: 64px 0 48px 48px; }
+    .tray-item {
+      display: grid;
+      grid-template-columns: 14px 1fr;
+      gap: 20px;
+      padding-bottom: 40px;
+      position: relative;
+    }
+    .tray-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 6px; top: 14px;
+      width: 1px;
+      height: calc(100% - 14px);
+      background: var(--gray-5);
+    }
+    .tray-dot {
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--gray-5);
+      margin-top: 3px;
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+      transition: border-color .2s, background .2s;
+    }
+    .tray-item:first-child .tray-dot {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+    .tray-content {}
+    .tray-role {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 3px;
+      line-height: 1.2;
+    }
+    .tray-company {
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 10px;
+    }
+    .tray-desc {
+      font-size: 14px;
+      color: var(--gray-3);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    @media (max-width: 768px) {
+      .trayectoria-inner { grid-template-columns: 1fr; }
+      .trayectoria-left { border-right: none; border-bottom: 1px solid var(--gray-5); padding: 40px 0; }
+      .trayectoria-right { padding: 40px 0; }
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: .3; } 50% { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Hero en portátiles / ~1100–1400px: más ancho útil para texto, menos choque imagen–copia */
+    @media (max-width: 1400px) and (min-width: 769px) {
+      #hero {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+      }
+      .hero-right::before {
+        width: min(200px, 24vw);
+      }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 18px var(--section-gutter); }
+      .nav-links { display: none; }
+      #hero {
+        grid-template-columns: 1fr;
+        background-position: center top;
+        min-height: min(85vh, 900px);
+      }
+      #hero::before { background: linear-gradient(to bottom, rgba(13,13,13,.4) 0%, rgba(13,13,13,.97) 50%); }
+      .hero-left { display: none; }
+      .hero-right::before { display: none; }
+      .hero-right {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 92px var(--section-gutter) 48px;
+        padding-left: var(--section-gutter);
+        align-items: stretch;
+        margin-top: 40px;
+      }
+      /* nowrap evita que flex-wrap cree 2 columnas (título | stats) en pantallas bajas */
+      .hero-title-stat-row {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: 28px;
+        width: 100%;
+        max-width: 100%;
+      }
+      .hero-title-stat-row .hero-title {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+      }
+      .hero-title .name-bold,
+      .hero-title .name-light {
+        font-size: clamp(28px, 9vw, 52px);
+        word-break: break-word;
+      }
+      .hero-title-stat-row .hero-stat-meta {
+        width: 100%;
+        max-width: none;
+        align-self: stretch;
+        align-items: stretch;
+      }
+      .hero-stat-meta .hero-stat {
+        width: 100%;
+        text-align: left;
+      }
+      .hero-stat-meta .hero-stat-num {
+        font-size: clamp(32px, 14vw, 56px);
+      }
+      .hero-stat-meta .hero-meta {
+        text-align: left;
+        padding-top: 20px;
+      }
+      .hero-stat-meta .hero-meta span {
+        display: block;
+        overflow-wrap: anywhere;
+      }
+      .hero-stat-meta .hero-cta {
+        align-items: flex-start;
+        align-self: flex-start;
+        padding-top: 16px;
+      }
+      .hero-stat { text-align: left; }
+      #about { grid-template-columns: 1fr; }
+      .about-left { border-right: none; border-bottom: 1px solid var(--gray-5); padding: 48px 0; }
+      .about-right { padding: 48px 0; }
+      .section-marker { padding: 16px var(--section-gutter); }
+      .casos-header { grid-template-columns: 1fr; padding: 40px 0 32px; }
+      .caso-row { grid-template-columns: 48px 1fr; }
+      .caso-right { display: none; }
+      .caso-info { padding: 24px 16px; }
+      #testimonio { grid-template-columns: 1fr; padding: 60px var(--section-gutter); gap: 32px; }
+      .formacion-header { padding: 32px 0; flex-direction: column; gap: 8px; }
+      .formacion-grid { grid-template-columns: 1fr; }
+      .formacion-item { border-right: none; padding: 28px 0; }
+      #contacto { padding: 60px var(--section-gutter); flex-direction: column; align-items: flex-start; }
+      .contacto-right { align-items: flex-start; }
+      footer { padding: 16px var(--section-gutter); flex-direction: column; gap: 8px; text-align: center; }
+      .modal-overlay { padding: 0; align-items: flex-end; }
+      .modal-panel { border-radius: 12px 12px 0 0; max-height: 92vh; overflow-y: auto; }
+      .modal-body-content { padding: 28px var(--section-gutter) 40px; }
+      .modal-top-bar { padding: 16px var(--section-gutter); }
+      #testimonio blockquote { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor"></div>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#hero" class="nav-logo">Daniel Ferrada</a>
+    <div class="nav-links">
+      <a href="#about">Sobre mí</a>
+      <a href="#casos">Proyectos</a>
+      <a href="#testimonio">Testimonio</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-left"></div>
+    <div class="hero-right">
+      <div class="hero-eyebrow">UX/UI Designer · Productos financieros digitales</div>
+      <div class="hero-title-stat-row">
+        <h1 class="hero-title">
+          <span class="name-bold">Daniel <br> Ferrada</span>
+          <span class="name-light">Becerra</span>
+        </h1>
+        <div class="hero-stat-meta">
+          <div class="hero-stat">
+            <div class="hero-stat-num">+283%</div>
+            <div class="hero-stat-label">Crecimiento · Onboarding Corredora</div>
+          </div>
+          <div class="hero-meta">
+            <span>Banco Santander · División Inversiones</span>
+            <span>2022 – 2026 · Santiago, Chile</span>
+          </div>
+          <a href="#casos" class="hero-cta">
+            <span class="hero-cta-label">Ver proyectos</span>
+            <span class="hero-cta-arrow" aria-hidden="true">↓</span>
+          </a>
         </div>
       </div>
-    </nav>
+    </div>
 
-    <!-- Header Info-->
-    <header class="hero" id="scroll-banner">
-      <div class="container text-light">
-        <div class="row">
-          <div class="col-md-6 py-5 pt-md-2 mt-lg-5">
-            <h1 class="text-md-start mt-md-5 pt-md-5 text-portada">
-              Sr UX/UI designer, Publicista. <br>
-              Distintas formas para poner en práctica la
-              <span id="change-word" class="text-skill"> Creatividad </span> en post <br> de las personas.
-            </h1>
-            <hr
-              size="8px"
-              color="white"
-              width="60%"
-              align="left"
-              class="line-texto mt-4"
-            />
-            <div class="icons-rrss">
-              <a href="https://github.com/DanielFerrada" target="_blank">
-                <i class="fab fa-github-square fa-2x px-2"></i>
-              </a>
-             <a href="https://www.linkedin.com/in/daniel-ferrada-becerra-13261892/"
-              >
-                <i class="fab fa-linkedin fa-2x px-2"></i>
-              </a>
-            </div>
-          </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="about-left reveal">
+      <h2>Herramientas</h2>
+      <div class="about-tools">
+        <div class="tool-item">Figma <div class="tool-level"><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div></div></div>
+        <div class="tool-item">Maze <div class="tool-level"><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot"></div></div></div>
+        <div class="tool-item">Hotjar <div class="tool-level"><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot"></div></div></div>
+        <div class="tool-item">Jira / Confluence <div class="tool-level"><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot"></div></div></div>
+        <div class="tool-item">Design Systems <div class="tool-level"><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot"></div></div></div>
+        <div class="tool-item">Adobe XD <div class="tool-level"><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot"></div><div class="tool-dot"></div></div></div>
+        <div class="tool-item">Illustrator <div class="tool-level"><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot"></div><div class="tool-dot"></div></div></div>
+        <div class="tool-item">HTML / CSS <div class="tool-level"><div class="tool-dot on"></div><div class="tool-dot on"></div><div class="tool-dot"></div><div class="tool-dot"></div><div class="tool-dot"></div></div></div>
+      </div>
+    </div>
+    <div class="about-right reveal">
+      <p>Soy UX/UI Designer con más de cuatro años liderando productos financieros digitales en banca — un entorno donde la <strong>complejidad regulatoria</strong>, la exigencia técnica y la experiencia del usuario convergen en cada decisión de diseño.</p>
+      <p>Durante ese tiempo aprendí que diseñar bien no es suficiente: hay que saber comunicarlo. Representé al área de diseño de forma autónoma frente a <strong>jefaturas y stakeholders</strong>, convirtiendo insights de usuario y avances de sprint en argumentos que desbloquearon proyectos y alinearon equipos completos.</p>
+      <p>Trabajo en células Agile con equipos multidisciplinarios, con Figma como herramienta central y Maze y Hotjar para validar en producción. Entiendo tanto el lenguaje del desarrollo como el del negocio.</p>
+      <p><em>El mejor diseño es el que nadie nota — porque simplemente funciona.</em></p>
+    </div>
+  </section>
+
+  <!-- Trayectoria -->
+  <!-- Casos -->
+  <div class="section-marker reveal">
+    <span class="section-marker-num">02</span>
+    <div class="section-marker-line"></div>
+    <span class="section-marker-title">Proyectos · Banco Santander 2022–2026</span>
+  </div>
+
+  <section id="casos">
+    <div class="casos-header reveal">
+      <h2>Soluciones Digitales<br><em style="font-style:italic;color:var(--gray-3);">en producción</em></h2>
+      <p>Proyectos end-to-end desarrollados en la División de Inversiones de Santander — desde el brief inicial hasta el pase a producción, en células Agile con restricciones regulatorias reales.</p>
+    </div>
+
+    <!-- Caso 01 -->
+    <div class="caso-row reveal" onclick="openModal('modal1')">
+      <div class="caso-index">01</div>
+      <div class="caso-info">
+        <div class="caso-tag-row">
+          <span class="caso-tag accent">+283% primer mes</span>
+          <span class="caso-tag">UX end-to-end</span>
+          <span class="caso-tag">Regulación financiera</span>
+        </div>
+        <div class="caso-title-row">Onboarding Digital<br>Corredora de Bolsa</div>
+      </div>
+      <div class="caso-right">
+        <p class="caso-desc">El banco operaba sin proceso digital para el alta de clientes en su corredora. Lideré la digitalización completa del flujo — desde el benchmark en primera persona hasta el QA con desarrollo.</p>
+        <div class="caso-bottom">
+          <span class="caso-year">2022 – 2023</span>
+          <span class="caso-arrow">→</span>
         </div>
       </div>
-    </header>
+    </div>
 
-    <!-- Section About Me-->
-    <section id="scroll-about" class="About mt-2 mb-4 pt-2 pb-4">
-      <div class="container">
-        <!-- About Me Text-Info-->
-        <div class="row">
-          <div class="col-md-12 pt-4 d-none d-sm-block">
-            <h3>Un poco de mi</h3>
-          </div>
-          <div class="col-12 d-none d-sm-block">
-            
-            
-            <p>
-              Soy UX/UI Designer especializado en productos financieros digitales, con más de cuatro años liderando proyectos end-to-end en la División de Inversiones de Santander — acciones, fondos mutuos y productos de ahorro.
-            </p>
-            <p>
-              Mi trabajo combina rigor de proceso con visión estratégica: ejecuto ciclos completos de UX (research, benchmark, prototipado, testeo y QA con desarrollo) y a la vez represento al área de diseño frente a jefaturas y stakeholders, traduciendo insights de usuario en decisiones concretas de negocio.
-            </p>
-            <p>
-              Trabajo en células Agile con equipos multidisciplinarios, con Figma como herramienta central y Maze y Hotjar para validar en producción. Entiendo tanto el lenguaje del desarrollo como el del negocio — y eso me permite diseñar soluciones que realmente se construyen y que realmente funcionan.
-            </p>
-            <p>
-              Hoy estoy en búsqueda activa de un nuevo desafío donde seguir aportando desde el diseño a productos digitales complejos.
-            </p>
-
-            <a
-              href="#scroll-contact"
-              type="button"
-              data-bs-toggle="tooltip"
-              data-placement="right"
-              title="Envíame un correo"
-              class="btn btn-outline-secondary mt-4"
-            >
-              ¿Conversemos?</a
-            >
-            
-          </div>
-          
+    <!-- Caso 02 -->
+    <div class="caso-row reveal" onclick="openModal('modal2')">
+      <div class="caso-index">02</div>
+      <div class="caso-info">
+        <div class="caso-tag-row">
+          <span class="caso-tag accent">MVP + iteración anual</span>
+          <span class="caso-tag">Coordinación global</span>
+          <span class="caso-tag">Design System</span>
         </div>
-        <!-- About Me Skills-->
-        
+        <div class="caso-title-row">Saldos Consolidados<br>de Inversiones</div>
       </div>
-    </section>
-
-    <!-- Section my works ux- ui-->
-    <section id="scroll-work-ux" class="pt-2 px-2 bg-secondary">
-      <h2 class="text-center my-works text-light py-5">Caso UX/UI</h2>
-
-      <div class="container-fluid pb-md-5">
-        <div class="row">
-          <div class="col-12 col-sm-6">
-            <img
-              class="img-smartphone"
-              src="Assets/img/hitos.portafolio.png"
-              alt="First slide"
-            />
-          </div>
-          <div class="col-12 col-sm-6">
-            <div class="box-portfolio">
-              <h1
-                class="
-                  txt-works
-                  text-center text-light
-                  mx-auto
-                  style=width:
-                  200px
-                  ;
-                "
-              >
-                Hitos: Vinculación territorial
-              </h1>
-              <h4 class="txt-works subtitulo text-light mb-5">
-                Aplicación móvil
-              </h4>
-
-              <a
-                href="Assets/pdf/Hitos-portafolio.pdf"
-                type="button"
-                target="_blank"
-                data-bs-toggle="tooltip"
-                data-placement="right"
-                title="Revisa el resumen del proyecto"
-                class="btn btn-dark m-4"
-              >
-                VER PROYECTO
-              </a>
-
-              <button
-                type="button"
-                class="btn btn-light"
-                data-toggle="modal"
-                data-target="#myModalHitos"
-              >
-                VER PROTOTIPO
-              </button>
-
-              <!-- Modal hitos -->
-              <div
-                class="modal fade"
-                id="myModalHitos"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-md">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Prototipo Hitos</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <iframe width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FXqtCg71BPcsBPeDY6bO2xu%2FHitos-vinculaci%C3%B3n-territorial%3Fpage-id%3D0%253A1%26node-id%3D460%253A12%26viewport%3D302%252C48%252C0.04%26scaling%3Dscale-down%26starting-point-node-id%3D460%253A12"></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="caso-right">
+        <p class="caso-desc">Funcionalidad estratégica bloqueada durante años por complejidad técnica y regulatoria. Coordiné con España para adaptar la experiencia global al mercado local chileno.</p>
+        <div class="caso-bottom">
+          <span class="caso-year">2023 – 2024</span>
+          <span class="caso-arrow">→</span>
         </div>
       </div>
-    </section>
+    </div>
 
-      <section id="scroll-work-ux" class="pt-2  px-2 bg-llight">
-        <h2 class="text-center my-works text-dark my-5"> Caso UI</h2>
-        
-        <div class="container-fluid pb-5">
-          <div class="row">
-            <div class="col-12 col-sm-6">
-              <div class="box-portfolio">
-              <h1 class="txt-works text-center text-dark">Tenemos Cancha</h1>
-              <h4 class="txt-works subtitulo text-secondary mb-4">Aplicación de Wireframe en baja/alta</h4>
-              <!-- Button trigger modal video -->
-              <button
-                type="button"
-                class="btn btn-outline-secondary m-4"
-                data-toggle="modal"
-                data-target="#myModalTCvideo"
-                data-bs-toggle="tooltip" data-placement="right" title="Revisa protptipado en papel"
-              >
-                VER PROYECTO
-              </button>
-
-              <!-- Button trigger modal -->
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-toggle="modal"
-                data-target="#myModalTC"
-              >
-                VER PROTOTIPO
-              </button>
-
-              <!-- Modal figma -->
-              <div
-                class="modal fade"
-                id="myModalTC"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog modal-md">
-                  <div class="modal-content">
-                   
-                  <div class="modal-body">
-                    <button type="button" class="btn-close" aria-label="Close"></button>
-                    <iframe width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FmD6KPMOn8ehD9eDraDoyaZ%2FTenemos-Cancha-Copy%3Fnode-id%3D2%253A6%26scaling%3Dscale-down%26page-id%3D0%253A1%26starting-point-node-id%3D2%253A5"></iframe>
-
-                     </div>
-                    
-                  </div>
-                </div>
-              </div>
-               <!-- Modal video-->
-               <div class="modal fade" id="myModalTCvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                 
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Proyecto Tenemos Cancha</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <button type="button" class="btn-close" disabled aria-label="Close";></button>
-                      <iframe src="https://drive.google.com/file/d/1zNaJCDXHC15X8jI5fIDSQct0V2xtq4fk/preview" width="100%" height="500" ></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6">
-            <img
-              class="img-smartphone2 mb-6 pb-3"
-              src="Assets/img/Mesa de trabajo 1.png"
-              alt="seccond slide"
-            />
-          </div>
+    <!-- Caso 03 -->
+    <div class="caso-row reveal" onclick="openModal('modal3')">
+      <div class="caso-index">03</div>
+      <div class="caso-info">
+        <div class="caso-tag-row">
+          <span class="caso-tag accent">8.5/10 en testeos</span>
+          <span class="caso-tag">Educación financiera</span>
+          <span class="caso-tag">Diseño escalable</span>
         </div>
+        <div class="caso-title-row">Actualización Experiencia<br>Digital Acciones</div>
       </div>
-    </section>
-
-    <section id="scroll-work-ux" class=" pt-2  px-2 bg-secondary">
-      <h2 class="text-center my-works text-light py-5">Caso UI</h2>
-      
-      <div class="container-fluid pb-5">
-        <div class="row">
-            <div class="col-12 col-sm-6 py-1">
-          <img class="img-smartphone" src="Assets/img/celular_itata.png" alt="First slide" >
-            </div>
-            <div class="col-12 col-sm-6">
-                <div class="box-portfolio3">
-                  <h1 class="txt-works text-center text-light  mx-auto style=width: 200px;"
-                    >Autopista Itata</h1>
-                <h4 class="txt-works subtitulo text-light mb-5">Reconstrucción sitio web a mobile</h4>
-                
-                <a href="Assets/pdf/itata-ui-mobile.pdf" type="button" target="_blank" data-bs-toggle="tooltip" data-placement="right" title="Revisa el resumen del proyecto"  class="btn btn-dark m-4"> VER PROYECTO
-                </a>
-
-                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModalitata">
-                  VER PROTOTIPO
-                </button>
-  
-                <!-- Modal -->
-                <div class="modal fade" id="myModalitata" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-md">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Reconstrucción sitio web</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <iframe width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FTZyEq48H6EPNLMPWDtV8s0%2FAutopista-Itata%3Fpage-id%3D0%253A1%26node-id%3D102%253A33%26viewport%3D302%252C48%252C0.48%26scaling%3Dcontain%26starting-point-node-id%3D102%253A33"></iframe>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-                </div>
-                 
-
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="scroll-work-ux" class="pt-2  px-2 bg-llight">
-      <h2 class="text-center my-works text-dark my-5"> Caso UI</h2>
-      
-      <div class="container-fluid pb-5">
-        <div class="row">
-          <div class="col-12 col-sm-6">
-            <div class="box-portfolio">
-            <h1 class="txt-works text-center text-dark">Asistente de pagos Movistar</h1>
-            <h4 class="txt-works subtitulo text-secondary mb-3">Prototipo navegable</h4>
-            <!-- Button trigger modal video -->
-            <a
-                href="Assets/pdf/asistente.pdf"
-                type="button"
-                target="_blank"
-                data-bs-toggle="tooltip"
-                data-placement="right"
-                title="Revisa el resumen del proyecto"
-                class="btn btn-outline-secondary m-4"
-              >
-                VER PROYECTO
-              </a>
-
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-toggle="modal"
-                data-target="#myModalasistente"
-              >
-              VER PROTOTIPO
-            </button>
-
-            <!-- Modal figma -->
-            <div
-              class="modal fade"
-              id="myModalasistente"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                 
-                <div class="modal-body">
-                  <button type="button" class="btn-close" aria-label="Close"></button>
-                  <iframe  width="100%" height="750" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FAmG6614RErmjJ8MQeGCdpl%2FAsistente-de-pagos-Movistar-Copy%3Fpage-id%3D0%253A1%26node-id%3D1%253A6%26viewport%3D302%252C48%252C0.45%26scaling%3Dscale-down%26starting-point-node-id%3D1%253A6"></iframe>
-
-                   </div>
-                  
-                </div>
-              </div>
-            </div>
-             <!-- Modal video-->
-             <div class="modal fade" id="myModalTCvideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-               
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">ASISTENTE DE PAGOS</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <button type="button" class="btn-close" disabled aria-label="Close";></button>
-                    <iframe src="https://drive.google.com/file/d/1zNaJCDXHC15X8jI5fIDSQct0V2xtq4fk/preview" width="100%" height="500" ></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <img
-            class="img-smartphone2 mb-6 pb-3"
-            src="Assets/img/ASISTENTE.png"
-            alt="seccond slide"
-          />
+      <div class="caso-right">
+        <p class="caso-desc">Rediseño escalable alineado a lineamientos corporativos globales y adaptado al mercado local. Incorporación de educación financiera como diferenciador emergente del research.</p>
+        <div class="caso-bottom">
+          <span class="caso-year">2024 – 2025</span>
+          <span class="caso-arrow">→</span>
         </div>
       </div>
     </div>
   </section>
 
-   
+  <!-- Testimonio -->
+  <section id="testimonio">
+    <div class="testimonio-left reveal">
+      <div class="testimonio-left-label">Testimonio</div>
+      <div class="testimonio-left-rule"></div>
+      <div class="testimonio-left-author">
+        <strong>Gerente de Wealth Management</strong>
+        <span>Banco Santander<br>División Inversiones</span>
+      </div>
+    </div>
+    <div class="testimonio-right reveal">
+      <blockquote>
+        "Tuve el privilegio de contar con Daniel como líder del equipo de UX que integraba mis células Agile. Siempre fue un aporte sobresaliente: se capacitaba en las características del producto, contrataba servicios de la competencia con su propio presupuesto para identificar oportunidades, y realizaba estudios profundos que luego presentaba con alto impacto. Lideró y nos representó como país en el diseño de la plataforma global de inversiones de Santander. Si tengo la responsabilidad de armar un equipo UX/UI, Daniel siempre será mi primera opción."
+      </blockquote>
+    </div>
+  </section>
 
+  <!-- Formación -->
+  <div class="section-marker reveal">
+    <span class="section-marker-num">04</span>
+    <div class="section-marker-line"></div>
+    <span class="section-marker-title">Formación · Desafío LATAM · 2021</span>
+  </div>
 
-      
+  <section id="formacion">
+    <div class="formacion-header reveal">
+      <h2>Proyectos de bootcamp</h2>
+      <p>Trabajos formativos donde construí las bases metodológicas del proceso UX.</p>
+    </div>
+    <div class="formacion-grid">
+      <div class="formacion-item reveal">
+        <div class="formacion-item-top">
+          <div class="formacion-tipo">Caso UX/UI</div>
+          <div class="formacion-nombre">Hitos: Vinculación territorial</div>
+          <div class="formacion-sub">Aplicación móvil</div>
+        </div>
+        <div class="formacion-links">
+          <a href="Assets/pdf/Hitos-portafolio.pdf" target="_blank" class="formacion-link">Ver proyecto</a>
+          <a href="https://www.figma.com/proto/XqtCg71BPcsBPeDY6bO2xu/Hitos-vinculaci%C3%B3n-territorial?page-id=0%3A1&node-id=460%3A12&viewport=302%2C48%2C0.04&scaling=scale-down&starting-point-node-id=460%3A12" target="_blank" class="formacion-link">Ver prototipo</a>
+        </div>
+      </div>
+      <div class="formacion-item reveal">
+        <div class="formacion-item-top">
+          <div class="formacion-tipo">Caso UI</div>
+          <div class="formacion-nombre">Tenemos Cancha</div>
+          <div class="formacion-sub">Wireframe baja/alta fidelidad</div>
+        </div>
+        <div class="formacion-links">
+          <a href="https://www.figma.com/proto/mD6KPMOn8ehD9eDraDoyaZ/Tenemos-Cancha-Copy?node-id=2%3A6&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A5" target="_blank" class="formacion-link">Ver prototipo</a>
+        </div>
+      </div>
+      <div class="formacion-item reveal">
+        <div class="formacion-item-top">
+          <div class="formacion-tipo">Caso UI</div>
+          <div class="formacion-nombre">Autopista Itata</div>
+          <div class="formacion-sub">Reconstrucción sitio web a mobile</div>
+        </div>
+        <div class="formacion-links">
+          <a href="Assets/pdf/itata-ui-mobile.pdf" target="_blank" class="formacion-link">Ver proyecto</a>
+          <a href="https://www.figma.com/proto/TZyEq48H6EPNLMPWDtV8s0/Autopista-Itata?page-id=0%3A1&node-id=102%3A33&viewport=302%2C48%2C0.48&scaling=contain&starting-point-node-id=102%3A33" target="_blank" class="formacion-link">Ver prototipo</a>
+        </div>
+      </div>
+      <div class="formacion-item reveal">
+        <div class="formacion-item-top">
+          <div class="formacion-tipo">Caso UI</div>
+          <div class="formacion-nombre">Asistente de pagos Movistar</div>
+          <div class="formacion-sub">Prototipo navegable</div>
+        </div>
+        <div class="formacion-links">
+          <a href="Assets/pdf/asistente.pdf" target="_blank" class="formacion-link">Ver proyecto</a>
+          <a href="https://www.figma.com/proto/AmG6614RErmjJ8MQeGCdpl/Asistente-de-pagos-Movistar-Copy?page-id=0%3A1&node-id=1%3A6&viewport=302%2C48%2C0.45&scaling=scale-down&starting-point-node-id=1%3A6" target="_blank" class="formacion-link">Ver prototipo</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <section id="scroll-work" class="bg-dark pt-4 mb-4 px-2">
-        <h2 class="text-center my-works text-light">Mis trabajos web</h2>
-        <p class="text-center text-light">Si quieres ver el cógigo de la página o visualizarla mejor, haz click en la imágen ;)</p>
-        <div class="container pb-5">
-          <div class="row" id="gallery" data-toggle="modal" data-target="#exampleModal">
-            <div class="col-12 col-sm-6 col-lg-4 my-3">
-              <a href="#" data-target="#carouselExample" data-slide-to="0">
-                <img class="w-100" src="Assets/img/meet_coffee.png" alt="First slide" >
-              </a>
-              
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4 my-3">
-              <a href="#"data-target="#carouselExample" data-slide-to="1">
-              <img class="w-100" src="Assets/img/suricata.png" alt="First slide">
-             </a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4 my-3">
-              <a href="#" data-target="#carouselExample" data-slide-to="2">
-              <img class="w-100" src="Assets/img/cuppon.png" alt="First slide" >
-            </a>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 my-3">
-            <a href="#" data-target="#carouselExample" data-slide-to="3">
-              <img
-                class="w-100"
-                src="Assets/img/iguana_page.png"
-                alt="First slide"
-              />
-            </a>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 my-3">
-            <a href="#" data-target="#carouselExample" data-slide-to="4">
-              <img
-                class="w-100"
-                src="Assets/img/ricomida.png"
-                alt="First slide"
-              />
-            </a>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 my-3">
-            <a href="#" data-target="#carouselExample" data-slide-to="5">
-              <img
-                class="w-100"
-                src="Assets/img/olivia-ros.png"
-                alt="First slide"
-              />
-            </a>
+  <!-- Trayectoria -->
+  <div class="section-marker reveal">
+    <span class="section-marker-num">05</span>
+    <div class="section-marker-line"></div>
+    <span class="section-marker-title">Trayectoria profesional</span>
+  </div>
+
+  <section id="trayectoria">
+    <div class="trayectoria-inner">
+      <div class="trayectoria-left reveal">
+        <h2>Carrera</h2>
+        <p>Más de 15 años construyendo experiencias — desde retail y telecomunicaciones hasta productos financieros digitales en banca.</p>
+      </div>
+      <div class="trayectoria-right">
+        <div class="tray-item reveal">
+          <div class="tray-dot"></div>
+          <div class="tray-content">
+            <div class="tray-role">Diseñador UX/UI Senior</div>
+            <div class="tray-company">Banco Santander (División Inversiones) · 2022 – 2026</div>
+            <div class="tray-desc">Lideré proyectos end-to-end en productos como acciones, fondos mutuos y ahorro. Ejecuté procesos UX completos (research, benchmark, prototipado, testeo y QA) en células Agile con equipos multidisciplinarios. Representé al área de diseño ante stakeholders, alineando decisiones de negocio con insights de usuario. Logré impactos como +283% en onboarding digital y destrabe de proyectos estratégicos.</div>
           </div>
         </div>
-        <!-- Modal -->
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          role="dialog"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="modal-header no-padding">
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <!-- carousel inside modal -->
-                <div
-                  id="carouselExample"
-                  class="carousel slide"
-                  data-ride="carousel"
-                >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img
-                        class="d-block img-int"
-                        src="Assets/img/img-carousel-inner/meet_coffe.png"
-                        alt="First slide"
-                      />
-                      <p class="text-center py-1 text-card">
-                        Sitio de contacto responsivo con formulario de contacto,
-                        donde se ocupan elementos de jquery y bootstrap
-                      </p>
-                      <div class="text-center icons-work">
-                        <a
-                          href="https://github.com/DanielFerrada/meet-coffee"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="left"
-                          title="Ver código GitHub"
-                        >
-                          <i class="fab fa-github-square fa-2x px-1"></i>
-                        </a>
-                        <a
-                          href="https://danielferrada.github.io/meet-coffee/"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="right"
-                          title="Ver página"
-                        >
-                          <i class="fas fa-link fa-2x px-1"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        class="d-block w-100 img-int"
-                        src="Assets/img/img-carousel-inner/suricata.png"
-                        alt="Second slide"
-                      />
-                      <p class="text-center py-3 text-card">
-                        Sitio de contacto responsivo con formulario de contacto,
-                        donde se ocupan elementos de jquery y bootstrap
-                      </p>
-                      <div class="text-center icons-work">
-                        <a
-                          href="https://github.com/DanielFerrada/suricata"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="left"
-                          title="Ver código GitHub"
-                        >
-                          <i class="fab fa-github-square fa-2x px-1"></i>
-                        </a>
-                        <a
-                          href="https://danielferrada.github.io/suricata/"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="right"
-                          title="Ver página"
-                        >
-                          <i class="fas fa-link fa-2x px-1"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        class="d-block w-100 img-int"
-                        src="Assets/img/img-carousel-inner/Cuppon.png"
-                        alt="Third slide"
-                      />
-                      <p class="text-center py-3 text-card">
-                        Sitio de contacto responsivo con formulario de contacto,
-                        donde se ocupan elementos de jquery y bootstrap
-                      </p>
-                      <div class="text-center icons-work">
-                        <a
-                          href="https://github.com/DanielFerrada/cuppon"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="left"
-                          title="Ver código GitHub"
-                        >
-                          <i class="fab fa-github-square fa-2x px-1"></i>
-                        </a>
-                        <a
-                          href="https://danielferrada.github.io/cuppon/"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="right"
-                          title="Ver página"
-                        >
-                          <i class="fas fa-link fa-2x px-1"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        class="d-block w-100 img-int"
-                        src="Assets/img/img-carousel-inner/iguana_page.png"
-                        alt="Fourth slide"
-                      />
-                      <p class="text-center py-3 text-card">
-                        Sitio de contacto responsivo con formulario de contacto,
-                        donde se ocupan elementos de jquery y bootstrap
-                      </p>
-                      <div class="text-center icons-work">
-                        <a
-                          href="https://github.com/DanielFerrada/iguana"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="left"
-                          title="Ver código GitHub"
-                        >
-                          <i class="fab fa-github-square fa-2x px-1"></i>
-                        </a>
-                        <a
-                          href="https://danielferrada.github.io/iguana/"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="right"
-                          title="Ver página"
-                        >
-                          <i class="fas fa-link fa-2x px-1"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        class="d-block w-100 img-int"
-                        src="Assets/img/img-carousel-inner/ricomida.png"
-                        alt="Fifth slide"
-                      />
-                      <p class="text-center py-3 text-card">
-                        Sitio de contacto responsivo con formulario de contacto,
-                        donde se ocupan elementos de jquery y bootstrap
-                      </p>
-                      <div class="text-center icons-work">
-                        <a
-                          href="https://github.com/DanielFerrada/ricomida"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="left"
-                          title="Ver código GitHub"
-                        >
-                          <i class="fab fa-github-square fa-2x px-1"></i>
-                        </a>
-                        <a
-                          href="https://danielferrada.github.io/ricomida/"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="right"
-                          title="Ver página"
-                        >
-                          <i class="fas fa-link fa-2x px-1"></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img
-                        class="d-block w-100 img-int"
-                        src="Assets/img/img-carousel-inner/olivia_ros.png"
-                        alt="sixth slide"
-                      />
-                      <p class="text-center py-3 text-card">
-                        Sitio de contacto responsivo con formulario de contacto,
-                        donde se ocupan elementos de jquery y bootstrap
-                      </p>
-                      <div class="text-center icons-work">
-                        <a
-                          href="https://github.com/DanielFerrada/olivia-ross"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="left"
-                          title="Ver código GitHub"
-                        >
-                          <i class="fab fa-github-square fa-2x px-1"></i>
-                        </a>
-                        <a
-                          href="https://danielferrada.github.io/olivia-ross/"
-                          target="_blank"
-                          data-bs-toggle="tooltip"
-                          data-placement="right"
-                          title="Ver página"
-                        >
-                          <i class="fas fa-link fa-2x px-1"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <a
-                    class="carousel-control-prev"
-                    href="#carouselExample"
-                    role="button"
-                    data-slide="prev"
-                  >
-                    <span
-                      class="carousel-control-prev-icon shadow p-4 mb-5"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="sr-only">anterior</span>
-                  </a>
-                  <a
-                    class="carousel-control-next"
-                    href="#carouselExample"
-                    role="button"
-                    data-slide="next"
-                  >
-                    <span
-                      class="carousel-control-next-icon shadow p-4 mb-5"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="sr-only">siguiente</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+        <div class="tray-item reveal">
+          <div class="tray-dot"></div>
+          <div class="tray-content">
+            <div class="tray-role">Formador-Facilitador / Backoffice área de cobranza</div>
+            <div class="tray-company"> Fastco / Movistar · 2015 – 2022</div>
+            <div class="tray-desc">Lideré el diseño e implementación de experiencias formativas para equipos operativos, aplicando principios de usabilidad para simplificar procesos com plejos y mejorar la adopción interna. Identifiqué fricciones en flujos de trabajo mediante observación directa y entrevistas con usuarios internos, proponiendo mejoras concretas en la operación del día a día. Diseñé materiales y guías centradas en el usuario final, iterando según feedback continuo del equipo.</div>
+          </div>
+        </div>
+        <div class="tray-item reveal">
+          <div class="tray-dot"></div>
+          <div class="tray-content">
+            <div class="tray-role">Supervisor Retail</div>
+            <div class="tray-company">LG Electronics · 2006 – 2014</div>
+            <div class="tray-desc">Lideré equipos de promotores en puntos de venta de grandes tiendas de Santiago, gestionando la experiencia del cliente en categorías de alta complejid ad técnica (electrónica, computación, línea blanca). Identifiqué oportunidades de mejora en la atención al usuario y diseñé protocolos de servicio que potenciaron el desempeño individual de cada promotor. Desarrollé habilidades sólidas en resolución de problemas, liderazgo situacional y optimización de recursos en entornos de alta presión.</div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Section Contact Me-->
-    <section id="scroll-contact" class="contact my-4 p-4">
-      <h3 class="text-center">Contacto</h3>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 offset-md-3 pb-4">
-            <p class="text-center pb-4">
-              Si tienes alguna duda, o quieres conversar conmigo para algún
-              trabajo o solicitud, no dudes en contactarme a:
-            </p>
-            <p class="text-center">
-              <a href="mailto:daniel.ferrada.becerra@gmail.com"
-                >daniel.ferrada.becerra@gmail.com</a
-              >
-            </p>
-            <p class="text-center">+56949789366</p>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <div class="contacto-left reveal">
+      <h2>¿Trabajamos<br><em>juntos?</em></h2>
+      <a href="mailto:daniel.ferrada.becerra@gmail.com" class="contact-email">
+        daniel.ferrada.becerra@gmail.com <span>→</span>
+      </a>
+    </div>
+    <div class="contacto-right reveal">
+      <a href="https://www.linkedin.com/in/daniel-ferrada-becerra-13261892/" target="_blank" class="contact-link">LinkedIn ↗</a>
+      <a href="https://github.com/DanielFerrada" target="_blank" class="contact-link">GitHub ↗</a>
+      <span style="font-size:12px;color:var(--gray-3);margin-top:8px;">+56 9 4978 9366</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Daniel Ferrada Becerra · UX/UI Designer</span>
+    <span>Santiago, Chile · 2026</span>
+  </footer>
+
+  <!-- ══════════ MODALES ══════════ -->
+
+  <!-- Modal 1: Onboarding -->
+  <div class="modal-overlay" id="modal1" onclick="closeOnOverlay(event,'modal1')">
+    <div class="modal-panel">
+      <div class="modal-top-bar">
+        <span class="modal-top-label">Caso 01 · Banco Santander · 2022–2023</span>
+        <button class="modal-close" onclick="closeModal('modal1')">×</button>
+      </div>
+      <div class="modal-img-slot">
+        <!-- Agrega tu imagen: <img src="Assets/img/santander-onboarding.jpg" alt="Onboarding Corredora"> -->
+        <div class="modal-img-placeholder">
+          <span class="modal-img-placeholder-title">Visualización restringida por Acuerdo de Confidencialidad (NDA)</span>
+          <p class="modal-img-placeholder-desc">Para proteger la integridad de los productos financieros y datos de negocio de Santander, los detalles visuales de este proyecto han sido anonimizados o se omiten en este sitio público. Solicita una revisión en vivo para ver el flujo completo.</p>
+        </div>
+        <div class="modal-img-caption">Onboarding Digital · Corredora de Bolsa · Santander</div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-kpis">
+          <div class="kpi-item"><div class="kpi-num">+283%</div><div class="kpi-label">Crecimiento · primer mes</div></div>
+          <div class="kpi-item"><div class="kpi-num">130</div><div class="kpi-label">Altas mensuales · base presencial</div></div>
+          <div class="kpi-item"><div class="kpi-num">100%</div><div class="kpi-label">Proceso digitalizado</div></div>
+        </div>
+        <h3>Onboarding Digital Corredora de Bolsa</h3>
+        <div class="modal-section">
+          <div class="modal-section-label">El problema</div>
+          <p>Para invertir en acciones en Santander, el cliente debía primero darse de alta en la corredora de bolsa. Ese proceso era completamente <strong>presencial</strong>: formularios físicos, firma en sucursal, gestión manual. Cerca de 130 altas mensuales como techo operativo — y una barrera de entrada que frenaba el crecimiento del producto. El banco no tenía ningún flujo digital. Había que construirlo desde cero.</p>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-label">El proceso</div>
+          <p>Empecé donde creí que tenía que empezar: siendo cliente. Realicé un <strong>benchmark nacional dándome de alta personalmente</strong> en distintas instituciones financieras — qué friccionaba, qué generaba confianza, qué se podía simplificar. Ese input directo fue la base del brief y de las primeras propuestas de flujo. Desde ahí: Design Thinking completo, prototipado iterativo, testeos con usuarios y stakeholders, y QA con desarrollo hasta producción. El marco regulatorio fue el desafío central: diseñar dentro de restricciones legales no negociables sin que el usuario sintiera el peso burocrático.</p>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-label">El resultado</div>
+          <div class="modal-result-box">
+            <p>Crecimiento de <strong>+283%</strong> en el primer mes tras el lanzamiento. El impacto fue tan claro que desbloqueó directamente el siguiente desarrollo del área: la actualización completa del sitio de acciones.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- footer-->
-    <footer class="display-5 bg-dark text-center text-light p-5">
-      <div class="icons-rrss pb-3">
-        <a href="https://github.com/DanielFerrada" target="_blank">
-          <i class="fab fa-github-square fa-2x px-2"></i>
-        </a>
-        
-        <a href="https://www.linkedin.com/in/daniel-ferrada-becerra-13261892/"
-          target="_blank"
-        >
-          <i class="fab fa-linkedin fa-2x px-2"></i>
-        </a>
+  <!-- Modal 2: Saldos -->
+  <div class="modal-overlay" id="modal2" onclick="closeOnOverlay(event,'modal2')">
+    <div class="modal-panel">
+      <div class="modal-top-bar">
+        <span class="modal-top-label">Caso 02 · Banco Santander · 2023–2024</span>
+        <button class="modal-close" onclick="closeModal('modal2')">×</button>
       </div>
-      <p>Daniel Ferrada 2021. Todos los derechos reservados.</p>
-    </footer>
+      <div class="modal-img-slot">
+        <!-- <img src="Assets/img/santander-saldos.jpg" alt="Saldos Consolidados"> -->
+        <div class="modal-img-placeholder">
+          <span class="modal-img-placeholder-title">Visualización restringida por Acuerdo de Confidencialidad (NDA)</span>
+          <p class="modal-img-placeholder-desc">Para proteger la integridad de los productos financieros y datos de negocio de Santander, los detalles visuales de este proyecto han sido anonimizados o se omiten en este sitio público. Solicita una revisión en vivo para ver el flujo completo.</p>
+        </div>
+        <div class="modal-img-caption">Saldos Consolidados · Portafolio unificado · Santander</div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-kpis">
+          <div class="kpi-item"><div class="kpi-num">MVP</div><div class="kpi-label">Lanzamiento + iteración anual</div></div>
+          <div class="kpi-item"><div class="kpi-num">3+</div><div class="kpi-label">Áreas alineadas</div></div>
+          <div class="kpi-item"><div class="kpi-num">Global</div><div class="kpi-label">Alcance corporativo</div></div>
+        </div>
+        <h3>Saldos Consolidados de Inversiones</h3>
+        <div class="modal-section">
+          <div class="modal-section-label">El problema</div>
+          <p>Los clientes no tenían forma de ver su portafolio completo en un solo lugar. Acciones, fondos mutuos y productos de ahorro vivían en espacios separados. Era una necesidad <strong>largamente identificada — y bloqueada durante años</strong> por complejidad técnica, regulatoria y organizacional.</p>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-label">El proceso</div>
+          <p>Coordiné con el equipo de España para entender la experiencia global implementada a nivel corporativo — qué funcionó en otros mercados, qué restricciones eran propias del contexto local, qué podía absorberse versus qué requería rediseño. Las reuniones de stakeholders tuvieron alta carga de alineación: múltiples áreas con visiones distintas. Una parte central de mi trabajo fue <strong>traducir insights de usuario en argumentos organizacionales</strong> que desbloquearon la aprobación del proyecto.</p>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-label">El resultado</div>
+          <div class="modal-result-box">
+            <p>Lanzamiento como <strong>MVP sólido y bien validado</strong>, con nuevas características incorporadas durante el año siguiente. El proyecto tuvo además alcance corporativo: el trabajo de adaptación local contribuyó al diseño de la plataforma global de inversiones de Santander.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- jQuery 3.5.1-->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-      crossorigin="anonymous"
-    ></script>
-    <!-- Popper JS 1.16-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Bootstrap JS 4.5.3-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
-      integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
-      crossorigin="anonymous"
-    ></script>
-    <!-- mi script-->
-    <script src="Assets/js/script.js"></script>
-  </body>
+  <!-- Modal 3: Acciones -->
+  <div class="modal-overlay" id="modal3" onclick="closeOnOverlay(event,'modal3')">
+    <div class="modal-panel">
+      <div class="modal-top-bar">
+        <span class="modal-top-label">Caso 03 · Banco Santander · 2024–2025</span>
+        <button class="modal-close" onclick="closeModal('modal3')">×</button>
+      </div>
+      <div class="modal-img-slot">
+        <!-- <img src="Assets/img/santander-acciones.jpg" alt="Acciones"> -->
+        <div class="modal-img-placeholder">
+          <span class="modal-img-placeholder-title">Visualización restringida por Acuerdo de Confidencialidad (NDA)</span>
+          <p class="modal-img-placeholder-desc">Para proteger la integridad de los productos financieros y datos de negocio de Santander, los detalles visuales de este proyecto han sido anonimizados o se omiten en este sitio público. Solicita una revisión en vivo para ver el flujo completo.</p>
+        </div>
+        <div class="modal-img-caption">Actualización Acciones · Experiencia digital · Santander</div>
+      </div>
+      <div class="modal-body-content">
+        <div class="modal-kpis">
+          <div class="kpi-item"><div class="kpi-num">8.5</div><div class="kpi-label">Sobre 10 · validación testeos</div></div>
+          <div class="kpi-item"><div class="kpi-num">0</div><div class="kpi-label">Detractores en testeos</div></div>
+          <div class="kpi-item"><div class="kpi-num">MVP</div><div class="kpi-label">Diseño escalable</div></div>
+        </div>
+        <h3>Actualización Experiencia Digital Acciones</h3>
+        <div class="modal-section">
+          <div class="modal-section-label">El problema</div>
+          <p>El éxito del onboarding expuso una brecha: más clientes podían ingresar a invertir en acciones, pero la experiencia que los recibía estaba <strong>por debajo de los estándares del mercado</strong>. El desafío era rediseñar con criterio de largo plazo — construyendo algo escalable, alineado a lineamientos corporativos globales y adaptado al contexto chileno.</p>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-label">El proceso</div>
+          <p>Design Thinking completo, con una fase de análisis estratégico inicial: qué construir ahora, qué va al backlog, cómo diseñar una arquitectura flexible. El hallazgo más relevante del research fue la <strong>educación financiera</strong>: los usuarios que aún no invertían en acciones valoraron muy alto tener contexto y orientación dentro del mismo producto. Un diferenciador que no existía en el mercado.</p>
+        </div>
+        <div class="modal-section">
+          <div class="modal-section-label">El resultado</div>
+          <div class="modal-result-box">
+            <p>Validación de <strong>8.5/10 sin detractores</strong> en testeos previos al lanzamiento. Producto en fase de lanzamiento progresivo, con características adicionales pasando a producción. Experiencia diseñada con mirada escalable para absorber las próximas evoluciones del producto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .caso-row, .formacion-link').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    const navEl = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      navEl.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeOnOverlay(e, id) {
+      if (e.target === document.getElementById(id)) closeModal(id);
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => {
+          m.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
 </html>
-
