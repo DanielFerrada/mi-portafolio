@@ -588,7 +588,6 @@
       border-bottom: 1px solid var(--gray-5);
       margin-bottom: 36px;
     }
-    .kpi-item {}
     .kpi-num {
       font-family: var(--serif);
       font-size: 36px;
@@ -605,7 +604,6 @@
       margin-bottom: 24px;
       line-height: 1.2;
     }
-    .modal-section {  }
     .modal-section-label {
       font-size: 10px; font-weight: 500;
       letter-spacing: .15em; text-transform: uppercase;
@@ -636,7 +634,6 @@
       gap: 80px;
       align-items: start;
     }
-    .testimonio-left {}
     .testimonio-left-label {
       font-size: 10px; letter-spacing: .15em; text-transform: uppercase;
       color: var(--gray-3); margin-bottom: 24px;
@@ -686,7 +683,6 @@
       min-height: 200px;
     }
     .formacion-item:nth-child(even) { border-right: none; }
-    .formacion-item-top {}
     .formacion-tipo { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-4); margin-bottom: 10px; }
     .formacion-nombre {
       font-family: var(--serif);
@@ -808,7 +804,6 @@
       border-color: var(--accent);
       background: var(--accent);
     }
-    .tray-content {}
     .tray-role {
       font-size: 16px;
       font-weight: 500;
@@ -1040,10 +1035,30 @@
       <h2>Soluciones Digitales<br><em style="font-style:italic;color:var(--gray-3);">en producción</em></h2>
       <p>Proyectos end-to-end desarrollados en la División de Inversiones de Santander — desde el brief inicial hasta el pase a producción, en células Agile con restricciones regulatorias reales.</p>
     </div>
+   <!-- Caso 02 -->
+   
+    <div  class="caso-row reveal" onclick="window.open('saldos-consolidados.html', '_blank')">
+      <div class="caso-index">01</div>
+      <div class="caso-info">
+        <div class="caso-tag-row">
+          <span class="caso-tag accent">MVP + iteración anual</span>
+          <span class="caso-tag">Coordinación global</span>
+          <span class="caso-tag">Design System</span>
+        </div>
+        <div class="caso-title-row">Saldos Consolidados<br>de Inversiones</div>
+      </div>
+      <div class="caso-right">
+        <p class="caso-desc">Funcionalidad estratégica bloqueada durante años por complejidad técnica y regulatoria. Coordiné con España para adaptar la experiencia global al mercado local chileno.</p>
+        <div class="caso-bottom">
+          <span class="caso-year">2023 – 2024</span>
+          <span class="caso-arrow">→</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Caso 01 -->
     <div class="caso-row reveal" onclick="openModal('modal1')">
-      <div class="caso-index">01</div>
+      <div class="caso-index">02</div>
       <div class="caso-info">
         <div class="caso-tag-row">
           <span class="caso-tag accent">+283% primer mes</span>
@@ -1061,25 +1076,8 @@
       </div>
     </div>
 
-    <!-- Caso 02 -->
-    <div class="caso-row reveal" onclick="openModal('modal2')">
-      <div class="caso-index">02</div>
-      <div class="caso-info">
-        <div class="caso-tag-row">
-          <span class="caso-tag accent">MVP + iteración anual</span>
-          <span class="caso-tag">Coordinación global</span>
-          <span class="caso-tag">Design System</span>
-        </div>
-        <div class="caso-title-row">Saldos Consolidados<br>de Inversiones</div>
-      </div>
-      <div class="caso-right">
-        <p class="caso-desc">Funcionalidad estratégica bloqueada durante años por complejidad técnica y regulatoria. Coordiné con España para adaptar la experiencia global al mercado local chileno.</p>
-        <div class="caso-bottom">
-          <span class="caso-year">2023 – 2024</span>
-          <span class="caso-arrow">→</span>
-        </div>
-      </div>
-    </div>
+ 
+   
 
     <!-- Caso 03 -->
     <div class="caso-row reveal" onclick="openModal('modal3')">
@@ -1189,8 +1187,8 @@
   <div class="modal-overlay" id="modal1" onclick="closeOnOverlay(event,'modal1')">
     <div class="modal-panel">
       <div class="modal-top-bar">
-        <span class="modal-top-label">Caso 01 · Banco Santander · 2022–2023</span>
-        <button class="modal-close" onclick="closeModal('modal1')">×</button>
+        <span class="modal-top-label">Caso 01 · Banco Santander · 2022-2023</span>
+        <button class="modal-close" onclick="closeModal('modal1')">X</button>
       </div>
       <div class="modal-img-slot">
         <!-- Agrega tu imagen: <img src="Assets/img/santander-onboarding.jpg" alt="Onboarding Corredora"> -->
