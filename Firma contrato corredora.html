@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firma de Contrato Corredora de Bolsa · Daniel Ferrada</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --border: #e5e3de;
+      --text: #1a1a1a;
+      --muted: #888;
+      --green: #1a7a4a;
+      --green-bg: #f0faf4;
+      --yellow-bg: #fafaf0;
+      --red-bg: #faf0f0;
+      --blue: #1a3a7a;
+      --blue-bg: #f0f4fa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: "Inter", sans-serif; font-size: 16px; line-height: 1.7; }
+
+    .case-header { background: var(--text); color: #f8f7f4; padding: 80px 40px 60px; }
+    .case-header-inner { max-width: 900px; margin: 0 auto; }
+    .case-tag { font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 20px; }
+    .case-title { font-family: "Syne", sans-serif; font-weight: 800; font-size: clamp(36px,5vw,60px); line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 24px; }
+    .case-title span { color: #e8ff47; }
+    .case-subtitle { font-size: 18px; color: #aaa; font-weight: 300; max-width: 600px; line-height: 1.6; margin-bottom: 40px; }
+    .case-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .meta-label { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #666; }
+    .meta-value { font-size: 14px; color: #ddd; font-weight: 500; }
+
+    .content { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
+    .section { padding: 56px 0 0; border-top: 1px solid var(--border); margin-top: 56px; }
+    .section:first-child { border-top: none; }
+    .section-label { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .section-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin-bottom: 20px; }
+    .body-text { font-size: 16px; color: #333; line-height: 1.8; margin-bottom: 16px; }
+    .body-text strong { color: var(--text); font-weight: 600; }
+
+    .callout { border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+    .callout-yellow { background: var(--yellow-bg); border-left: 3px solid #c9a900; }
+    .callout-label { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; font-weight: 500; color: #7a6000; }
+    .callout-text { font-size: 15px; line-height: 1.7; color: #333; }
+
+    .img-full { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; margin: 24px 0; }
+    .img-caption { font-family: "DM Mono", monospace; font-size: 11px; color: var(--muted); margin-top: -16px; margin-bottom: 24px; letter-spacing: 0.3px; }
+
+    .phone-row { display: flex; gap: 16px; justify-content: center; margin: 24px 0; flex-wrap: wrap; }
+    .phone-frame { width: 100%; flex-shrink: 0; }
+    .phone-frame img { width: 100%; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.1); display: block; }
+    .phone-frame .img-caption { text-align: center; margin-top: 8px; margin-bottom: 0; }
+
+    .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .img-grid-item img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+    .img-grid-item .img-caption { margin-top: 8px; margin-bottom: 0; }
+
+    .decision-log { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 24px 0; }
+    .dl-header { background: var(--text); color: #f8f7f4; padding: 16px 24px; font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+    .dl-row { display: grid; grid-template-columns: 160px 1fr; border-bottom: 1px solid var(--border); }
+    .dl-row:last-child { border-bottom: none; }
+    .dl-label { padding: 16px 20px; background: #fafafa; border-right: 1px solid var(--border); font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+    .dl-value { padding: 16px 20px; font-size: 14px; line-height: 1.7; color: #333; }
+
+    .metrics-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 24px 0; }
+    .metric-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; text-align: center; }
+    .metric-value { font-family: "Syne", sans-serif; font-weight: 800; font-size: 32px; color: var(--text); line-height: 1; margin-bottom: 8px; }
+    .metric-label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+    .pull-quote { font-family: "Syne", sans-serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; line-height: 1.3; color: var(--text); border-left: 4px solid #e8ff47; padding: 20px 24px; border-radius: 0 8px 8px 0; margin: 32px 0; background: linear-gradient(90deg, rgba(232, 255, 71, 0.06) 0%, transparent 100%); }
+
+    .nda-notice { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin: 32px 0; display: flex; gap: 16px; align-items: flex-start; }
+    .nda-icon { font-size: 24px; flex-shrink: 0; }
+    .nda-title { font-family: "Syne", sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+    .nda-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .nda-cta { display: inline-block; margin-top: 12px; background: var(--text); color: #f8f7f4; font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 18px; border-radius: 4px; text-decoration: none; }
+
+    .back-link { display: inline-block; margin-top: 40px; background: var(--text); color: #f8f7f4; font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 18px; border-radius: 4px; text-decoration: none; }
+
+    @media(max-width:700px) {
+      .case-header { padding: 60px 20px 40px; }
+      .content { padding: 0 20px 60px; }
+      .phone-row, .img-grid-2, .metrics-row, .dl-row { grid-template-columns: 1fr; }
+      .dl-label { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="case-header">
+    <div class="case-header-inner">
+      <div class="case-tag">Caso 02 · Santander Inversiones · 2025</div>
+      <h1 class="case-title">Firma de Contrato <span>Corredora de Bolsa</span></h1>
+      <p class="case-subtitle">Digitalización del onboarding de inversiones bajo el marco de la Ley Fintech, transformando un proceso presencial en una experiencia fluida y escalable.</p>
+      
+      <div class="case-meta">
+        <div class="meta-item">
+          <span class="meta-label">Rol</span>
+          <span class="meta-value">Senior UX/UI Designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Plataforma</span>
+          <span class="meta-value">App & Desktop</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Impacto</span>
+          <span class="meta-value">+400% Altas de Contrato</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <section class="section">
+      <div class="section-label">01 · El Desafío</div>
+      <h2 class="section-title">De la fricción presencial a la agilidad digital</h2>
+      <p class="body-text">
+        El proceso de alta para operar en la bolsa era un cuello de botella crítico: 100% presencial, manual y propenso a errores que bloqueaban al cliente sin previo aviso. Mi objetivo fue liderar la transición hacia un modelo digital que cumpliera con el marco legal existente y con la nueva <strong>Ley Fintech</strong>.
+      </p>
+      
+      <img src="Assets/img/Firma Corredora/Datos-cliente-Formulario-CDB.png" alt="User Flow y Mapeo" class="img-full">
+      <p class="img-caption">Mapeo del ecosistema de servicios y Formulario de Datos del Cliente.</p>
+
+      <div class="callout callout-yellow">
+        <div class="callout-label">Restricción de Negocio</div>
+        <p class="callout-text">Compliance exigía que no se omitiera ningún dato del formato físico, lo que nos obligó a diseñar una estrategia de <strong>carga progresiva</strong> para no abrumar al usuario.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">02 · Estrategia de Diseño</div>
+      <h2 class="section-title">Smart Pre-fill y Reducción Cognitiva</h2>
+      <p class="body-text">Implementamos una experiencia de pre-llenado donde el cliente solo confirma datos existentes, optimizando el tiempo de ejecución en más de un 60%.</p>
+
+      <div class="decision-log">
+        <div class="dl-header">Log de Decisiones UX</div>
+        <div class="dl-row">
+          <div class="dl-label">Carga Progresiva</div>
+          <div class="dl-value">Seccionamiento del formulario para disminuir la fatiga visual y mejorar el foco en datos legales.</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-label">Santander Pass</div>
+          <div class="dl-value">Integración nativa con la app de validación biométrica para el cierre de firma legal.</div>
+        </div>
+      </div>
+
+      <div class="phone-row">
+        <div class="phone-frame">
+          <img src="Assets/img/Firma Corredora/Flujo-CDB.png" alt="Home Inversiones">
+          <p class="img-caption">Fluijo de alta de contrato.</p>
+        </div>
+        <div class="phone-frame">
+          <img src="Assets/img/Firma Corredora/Flujo mobile.png" alt="Smart Pre-fill">
+          <p class="img-caption">Carga progresiva mobile.</p>
+        </div>
+       
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">03 · Casos de Borde</div>
+      <h2 class="section-title">Diseñando para la transparencia</h2>
+      <p class="body-text">Creamos una serie de modales de respuesta rápida para evitar la fuga de clientes ante inconsistencias de perfil o bloqueos de la Ley Fintech.</p>
+
+      <div class="img-grid-2">
+        <div class="img-grid-item">
+          <img src="Assets/img/Firma Corredora/Modal onboarding-CDB.png" alt="Modal informativo">
+          <p class="img-caption">Aviso preventivo de Perfil Inversionista.</p>
+        </div>
+        <div class="img-grid-item">
+          <img src="Assets/img/Firma Corredora/Modal onboarding-errores-CDB.png" alt="Modal de error">
+          <p class="img-caption">Gestión de errores y call-to-action de ayuda.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">04 · Omnicanalidad</div>
+      <h2 class="section-title">Consistencia Desktop</h2>
+      <p class="body-text">El flujo fue adaptado para el sitio privado web, manteniendo el look & feel y la estructura lógica del mobile para una experiencia coherente.</p>
+      
+      <img src="Assets/img/Firma Corredora/validar- editar-Desktop.png" class="img-full">
+      <p class="img-caption">Interfaz de contrato en sitio privado web desktop.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">05 · Resultados</div>
+      <h2 class="section-title">Impacto en el Negocio</h2>
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-value">+400%</div>
+          <div class="metric-label">Altas de contrato orgánicas en el primer mes.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">60%</div>
+          <div class="metric-label">Reducción en el tiempo de llenado de datos.</div>
+        </div>
+       
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="nda-notice">
+        <div class="nda-icon">🔒</div>
+        <div>
+          <h3 class="nda-title">Nota sobre confidencialidad</h3>
+          <p class="nda-text">Este proyecto está bajo NDA. La información compartida aquí se centra en el proceso de diseño y resultados estratégicos. Los datos personales han sido omitidos.</p>
+          <a href="mailto:daniel.ferrada.becerra@gmail.com" class="nda-cta">Hablemos del proceso</a>
+        </div>
+      </div>
+      
+      <a href="index.html" class="back-link">← Volver al inicio</a>
+    </section>
+
+  </main>
+
+</body>
+</html>
