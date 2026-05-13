@@ -121,9 +121,7 @@
       <div class="section-label">01 · El Desafío</div>
       <h2 class="section-title">De la fricción presencial a la agilidad digital</h2>
       <p class="body-text">
-        El proceso de alta para operar en la bolsa era un cuello de botella crítico: 100% presencial, manual y propenso a errores que bloqueaban al cliente sin previo aviso. Mi objetivo fue liderar la transición hacia un modelo digital que cumpliera con el marco legal existente y co
-        +
-        ++ la nueva <strong>Ley Fintech</strong>.
+        El proceso de alta para operar en bolsa era 100% presencial: el cliente debía asistir a una sucursal, llenar un PDF manualmente y, si faltaba algún dato o existía un error de perfil, volver en otra oportunidad sin saber por qué fue bloqueado. A esto se sumó un nuevo mandato regulatorio — la Ley Fintech — que exigía acreditar un perfil de inversionista activo antes de poder operar. La convergencia de ambos factores hacía inviable escalar sin digitalizar el proceso, pero la complejidad legal y la cantidad de datos requeridos representaban un gran desafío para diseñar una experiencia digital fluida y efectiva.
       </p>
       
       <img src="Assets/img/firma-corredora/Datos-cliente-Formulario-CDB.png" alt="User Flow y Mapeo" class="img-full">
@@ -139,7 +137,7 @@
     <section class="section">
       <div class="section-label">02 · Estrategia de Diseño</div>
       <h2 class="section-title">Smart Pre-fill y Reducción Cognitiva</h2>
-      <p class="body-text">Implementamos una experiencia de pre-llenado donde el cliente solo confirma datos existentes, optimizando el tiempo de ejecución en más de un 60%.</p>
+      <p class="body-text">Antes de diseñar, formamos un equipo multidisciplinario para mapear los servicios disponibles y determinar qué campos podíamos pre-poblar desde datos existentes del cliente. Compliance estableció como restricción no omitir ningún dato del formulario físico, lo que nos obligó a diseñar para la completitud sin sacrificar experiencia. La estrategia resultante fue smart pre-fill con carga progresiva: el cliente solo confirma o corrige lo necesario, seccionado para reducir carga cognitiva. El benchmark incluyó experiencias de onboarding externas y otros flujos internos del banco, para mantener consistencia con lo que el cliente ya conocía en el ecosistema Santander.</p>
 
       <div class="decision-log">
         <div class="dl-header">Log de Decisiones UX</div>
@@ -156,12 +154,16 @@
       <div class="phone-row">
         <div class="phone-frame">
           <img src="Assets/img/firma-corredora/Flujo-CDB.png" alt="Home Inversiones">
-          <p class="img-caption">Fluijo de alta de contrato.</p>
+          <p class="img-caption">Flujo de alta de contrato.</p>
         </div>
         <div class="phone-frame">
-          <img src="Assets/img/firma-corredora/Flujo mobile.png" alt="Smart Pre-fill">
+          <img src="Assets/img/firma-corredora/Flujo-mobile.png" alt="Smart Pre-fill">
           <p class="img-caption">Carga progresiva mobile.</p>
         </div>
+        <div class="callout callout-yellow">
+        <div class="callout-label">Validación y liderazgo cross-funcional</div>
+        <p class="callout-text">La experiencia fue validada en dos dimensiones: con usuarios reales mediante testing local, y con el equipo legal para asegurar el cumplimiento regulatorio de cada estado comunicacional. La coordinación con compliance, legal y los equipos de tecnología fue parte integral del proceso de diseño — no una revisión al final — lo que permitió iterar sobre restricciones reales y no asumir flexibilidades que el marco legal no admitía.</p>
+      </div>
        
       </div>
     </section>
@@ -169,7 +171,7 @@
     <section class="section">
       <div class="section-label">03 · Casos de Borde</div>
       <h2 class="section-title">Diseñando para la transparencia</h2>
-      <p class="body-text">Creamos una serie de modales de respuesta rápida para evitar la fuga de clientes ante inconsistencias de perfil o bloqueos de la Ley Fintech.</p>
+      <p class="body-text">Un punto crítico del flujo era el estado del perfil de inversionista: si estaba inactivo o desactualizado, el cliente quedaba bloqueado sin saberlo. Diseñamos un sistema de comunicación preventiva — previo al formulario — que informaba al cliente su situación y le indicaba el paso siguiente según su casuística. Esto implicó mapear y diseñar respuesta para cada estado posible del servicio, priorizando claridad y velocidad de respuesta para no desincentivas al cliente en un proceso de alta intención. Adicionalmente, todos los errores que el backend podía devolver fueron contemplados con mensajería específica y call-to-action de ayuda.</p>
 
       <div class="img-grid-2">
         <div class="img-grid-item">
@@ -198,11 +200,11 @@
       <div class="metrics-row">
         <div class="metric-card">
           <div class="metric-value">+400%</div>
-          <div class="metric-label">Altas de contrato orgánicas en el primer mes.</div>
+          <div class="metric-label">Altas de contrato orgánicas durante el primer mes de lanzamiento — sin campaña de difusión activa — manteniendo un ritmo de crecimiento sostenido. El crecimiento fue exclusivamente orgánico, lo que evidencia que la experiencia redujo la barrera de entrada sin necesidad de incentivo externo.</div>
         </div>
         <div class="metric-card">
           <div class="metric-value">60%</div>
-          <div class="metric-label">Reducción en el tiempo de llenado de datos.</div>
+          <div class="metric-label">La reducción del tiempo de ejecución del proceso superó el 60%, pasando de un proceso presencial con múltiples visitas posibles a un flujo digital completable en una sola sesión.</div>
         </div>
        
       </div>
